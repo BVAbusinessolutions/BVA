@@ -1,0 +1,84 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid #a1a1aa;
+  border-radius: var(--r-sm);
+  background: var(--white);
+  color: var(--ink);
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.input:hover {
+  border-color: var(--ink);
+}
+
+.input:focus-visible {
+  border-color: var(--blue);
+  outline: 2px solid var(--blue);
+  outline-offset: 1px;
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--error);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.error {
+  color: var(--error);
+  font-size: 0.875rem;
+}
+
+.checkboxRow {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: var(--s-3);
+  font-size: 0.925rem;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--blue);
+}
+
+.help {
+  margin-top: var(--s-1);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.link {
+  color: var(--blue-strong);
+  text-underline-offset: 3px;
+}
+
+.status {
+  flex: 1 1 220px;
+  font-size: 0.925rem;
+  color: var(--muted);
+}
+
+.statusOk {
+  color: var(--success);
+}
+
+.statusError {
+  color: var(--error);
+}

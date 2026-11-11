@@ -1,0 +1,56 @@
+.toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.icon,
+.icon::before,
+.icon::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  content: '';
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.icon {
+  position: relative;
+}
+
+.icon::before {
+  position: absolute;
+  top: -6px;
+}
+
+.icon::after {
+  position: absolute;
+  top: 6px;
+}
+
+.iconOpen {
+  background: transparent;
+}
+
+.iconOpen::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.iconOpen::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 860px) {
+  .toggle {
+    display: inline-flex;
+  }
+}

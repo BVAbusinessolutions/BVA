@@ -1,0 +1,62 @@
+.wrap {
+  display: grid;
+  place-items: center;
+  min-height: 60vh;
+  padding-block: var(--s-9);
+  text-align: center;
+}
+
+.box {
+  max-width: 28rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  align-items: center;
+}
+
+.title {
+  font-size: 1.75rem;
+}
+
+.text {
+  color: var(--muted);
+  font-size: 1.0625rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-3);
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 var(--s-5);
+  border-radius: var(--r-md);
+  border: 1px solid var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--ink);
+}
+
+/* Fondo claro de borde a borde sobre el fondo 3D del sitio. */
+.wrap {
+  background: var(--white);
+  box-shadow: 0 0 0 100vmax var(--white);
+  clip-path: inset(0 -100vmax);
+}

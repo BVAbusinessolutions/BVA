@@ -1,0 +1,35 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue-strong);
+}
+
+.onDark .eyebrow {
+  color: var(--blue-soft);
+}
+
+.titleXl {
+  font-size: var(--title-xl);
+}
+
+.titleLg {
+  font-size: var(--title-lg);
+}
+
+.lead {
+  max-width: 34rem;
+  color: var(--muted);
+  font-size: 1.0625rem;
+}
+
+.onDark .lead {
+  color: var(--muted-on-dark);
+}
