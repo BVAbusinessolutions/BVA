@@ -1,0 +1,123 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--header-h) + var(--s-7)) 0 var(--s-8);
+  background: transparent;
+  color: var(--white);
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--s-6);
+  align-items: center;
+}
+
+.copy {
+  grid-column: 1 / span 7;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: clamp(3rem, 7.4vw, 6.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.line {
+  display: block;
+}
+
+.accent {
+  color: var(--blue);
+}
+
+.lead {
+  max-width: 34rem;
+  margin-top: var(--s-6);
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--muted-on-dark);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-top: var(--s-7);
+}
+
+/* La escena rompe la grilla: sangra hacia el borde derecho */
+.scene {
+  grid-column: 8 / span 5;
+  height: min(72vh, 620px);
+  margin-right: calc(var(--gutter) * -1.5);
+  position: relative;
+}
+
+.fallback {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+/* Entrada orquestada: un solo momento al cargar la página */
+.title .line,
+.lead,
+.actions {
+  animation: rise 700ms var(--ease-out) both;
+}
+
+.title .line:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.lead {
+  animation-delay: 200ms;
+}
+
+.actions {
+  animation-delay: 300ms;
+}
+
+@media (max-width: 960px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .copy {
+    grid-column: 1 / -1;
+  }
+
+  .scene {
+    grid-column: 1 / -1;
+    order: -1;
+    height: 300px;
+    margin: 0 calc(var(--gutter) * -1);
+  }
+}
+
+/* Velo sobre el fondo 3D: el texto de la izquierda siempre se lee bien. */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 10, 11, 0.88) 0%,
+      rgba(10, 10, 11, 0.5) 55%,
+      rgba(10, 10, 11, 0.15) 100%
+    ),
+    linear-gradient(0deg, rgba(10, 10, 11, 0.85) 0%, transparent 25%);
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+}

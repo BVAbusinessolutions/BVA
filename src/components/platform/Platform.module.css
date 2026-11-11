@@ -1,0 +1,102 @@
+.section {
+  position: relative;
+  padding: var(--s-10) 0 var(--s-9);
+  background: var(--ink);
+  color: var(--white);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Velo: oscurece arriba y abajo para leer el texto, y deja ver la demo en el centro. */
+.veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10, 10, 11, 0.96) 0%,
+      rgba(10, 10, 11, 0.6) 24%,
+      rgba(10, 10, 11, 0.08) 46%,
+      rgba(10, 10, 11, 0.2) 64%,
+      rgba(10, 10, 11, 0.97) 88%
+    ),
+    radial-gradient(ellipse at center, transparent 55%, rgba(10, 10, 11, 0.7) 100%);
+}
+
+.head,
+.window,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+.head {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--s-6);
+  align-items: end;
+}
+
+.title {
+  grid-column: 1 / span 6;
+}
+
+.intro {
+  grid-column: 8 / span 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s-5);
+}
+
+.lead {
+  color: var(--muted-on-dark);
+  font-size: 1.0625rem;
+}
+
+/* Hueco por donde se ve la plataforma funcionando. */
+.window {
+  height: clamp(320px, 40vw, 540px);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature {
+  padding-top: var(--s-4);
+  border-top: 2px solid var(--blue);
+}
+
+.featureName {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.featureText {
+  margin-top: var(--s-2);
+  color: var(--muted-on-dark);
+}
+
+@media (max-width: 860px) {
+  .title,
+  .intro {
+    grid-column: 1 / -1;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+}

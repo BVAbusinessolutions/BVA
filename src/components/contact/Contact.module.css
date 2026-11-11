@@ -1,0 +1,73 @@
+.section {
+  position: relative;
+  padding: var(--s-10) 0;
+  background: rgba(10, 10, 11, 0.62);
+  color: var(--white);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--s-6);
+  align-items: start;
+}
+
+.copy {
+  grid-column: 1 / span 5;
+}
+
+.direct {
+  margin-top: var(--s-7);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--line-dark);
+}
+
+.directTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue-soft);
+}
+
+.directList {
+  margin: var(--s-3) 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  color: var(--muted-on-dark);
+}
+
+.directList a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--white);
+  text-underline-offset: 4px;
+}
+
+.formColumn {
+  grid-column: 7 / span 6;
+}
+
+@media (max-width: 960px) {
+  .section {
+    padding: var(--s-9) 0;
+  }
+
+  .copy,
+  .formColumn {
+    grid-column: 1 / -1;
+  }
+}

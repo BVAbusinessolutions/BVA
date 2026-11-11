@@ -1,0 +1,104 @@
+.section {
+  padding: var(--s-10) 0;
+  background: rgba(10, 10, 11, 0.55);
+  color: var(--white);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--s-6);
+}
+
+.sceneColumn {
+  grid-column: 1 / span 5;
+}
+
+.scene {
+  position: sticky;
+  top: max(calc(var(--header-h) + var(--s-4)), calc(50vh - min(35vh, 280px)));
+  height: min(70vh, 560px);
+}
+
+.content {
+  grid-column: 7 / span 6;
+}
+
+.steps {
+  margin: var(--s-8) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: var(--s-4);
+  padding: var(--s-7) 0;
+  border-top: 1px solid var(--line-dark);
+  opacity: 0.45;
+  transition: opacity 400ms var(--ease-out);
+}
+
+.step.active {
+  opacity: 1;
+}
+
+.number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--muted-on-dark);
+  padding-top: 0.45rem;
+  transition: color 400ms var(--ease-out);
+}
+
+.active .number {
+  color: var(--blue-soft);
+}
+
+.stepName {
+  font-size: clamp(1.5rem, 2.6vw, 2.125rem);
+  font-weight: 700;
+}
+
+.stepText {
+  margin-top: var(--s-2);
+  max-width: 30rem;
+  color: var(--muted-on-dark);
+  font-size: 1.0625rem;
+}
+
+@media (max-width: 860px) {
+  .section {
+    padding: var(--s-9) 0;
+  }
+
+  .sceneColumn,
+  .content {
+    grid-column: 1 / -1;
+  }
+
+  .scene {
+    position: relative;
+    top: 0;
+    height: 340px;
+  }
+
+  .step {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step {
+    opacity: 1;
+  }
+}
+
+/* Espacio al final para que el modelo siga fijo mientras se lee el último paso. */
+@media (min-width: 861px) {
+  .content {
+    padding-bottom: 18vh;
+  }
+}

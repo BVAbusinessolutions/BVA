@@ -1,0 +1,23 @@
+.banner {
+  padding: var(--s-9) 0;
+  background: var(--mist);
+  border-top: 1px solid var(--line);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5);
+}
+
+.title {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+}
+
+.lead {
+  margin-top: var(--s-2);
+  max-width: 34rem;
+  color: var(--muted);
+}

@@ -1,0 +1,42 @@
+.button {
+  position: fixed;
+  right: max(var(--s-4), env(safe-area-inset-right));
+  bottom: max(var(--s-4), env(safe-area-inset-bottom));
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 52px;
+  padding: 0 var(--s-5) 0 var(--s-4);
+  border-radius: 999px;
+  background: var(--blue);
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 12px 30px -10px rgba(47, 91, 255, 0.7);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+  animation: rise 500ms var(--ease-out) 1s both;
+}
+
+.button:hover {
+  background: var(--blue-strong);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 520px) {
+  .button {
+    width: 52px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+}
