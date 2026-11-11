@@ -1,0 +1,5 @@
+/* El encabezado es fijo y sólido fuera de la portada: la página deja su altura libre arriba. */
+.page {
+  padding-top: var(--header-h);
+  background: var(--ink);
+}

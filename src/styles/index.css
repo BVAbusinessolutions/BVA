@@ -1,0 +1,4 @@
+/* Punto de entrada de estilos: tokens de marca, base global y movimiento. */
+@import './tokens.css';
+@import './global.css';
+@import './motion.css';

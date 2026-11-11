@@ -1,0 +1,45 @@
+/* Tokens de marca BVA (libro de marca v1.0). Fuente única de colores, tipografía y espaciado. */
+:root {
+  --ink: #0a0a0b;
+  --ink-soft: #18181b;
+  --blue: #2f5bff;
+  --blue-strong: #1e44e0;
+  --blue-soft: #7a95ff; /* azul para texto pequeño sobre negro (contraste AA) */
+  --white: #ffffff;
+  --mist: #f4f4f5;
+  --line: #e4e4e7;
+  --line-dark: #27272a;
+  --muted: #52525b;
+  --muted-on-dark: #a1a1aa;
+  --error: #c4231f;
+  --success: #0f766e;
+
+  --font-display: 'Sora', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 24px;
+
+  --container: 1240px;
+  --gutter: clamp(20px, 4vw, 40px);
+  --header-h: 72px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-enter: 520ms;
+
+  --title-xl: clamp(2.5rem, 5vw, 4rem);
+  --title-lg: clamp(2.25rem, 4.6vw, 3.75rem);
+}
