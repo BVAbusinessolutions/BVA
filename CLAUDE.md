@@ -10,6 +10,7 @@ React 18 + Vite 7 + React Router 7 + Three.js. CSS Modules (no Tailwind). Textos
 - `src/hooks/` lógica y estado · `src/services/` toda llamada de red · `src/utils/` funciones puras
 - `src/content/es.js` todos los textos visibles · `src/config/` datos del sitio y menús
 - `src/styles/tokens.css` colores y espaciado · `src/assets/img/` y `public/img/` imágenes
+- `bva-backend/` API Node + Express + MySQL (JWT, bcrypt), con sus propias pruebas (`npm test` dentro)
 
 ## Reglas
 

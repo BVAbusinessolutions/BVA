@@ -20,3 +20,12 @@ export const whatsappLabel = (digits = SITE.whatsapp) =>
 /** Enlace directo a WhatsApp con un mensaje inicial. */
 export const whatsappUrl = (text = 'Hola BVA, quiero automatizar una tarea de mi negocio.') =>
   `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`
+
+/**
+ * Video de la portada controlado por scroll. Sin URL, la portada usa el logo en 3D.
+ * Ejemplo: VITE_HERO_VIDEO_URL=/video/hero.mp4 (archivo en public/video/).
+ */
+export const HERO_VIDEO = Object.freeze({
+  src: env.VITE_HERO_VIDEO_URL || null,
+  poster: env.VITE_HERO_VIDEO_POSTER || undefined,
+})

@@ -14,6 +14,14 @@
   --error: #c4231f;
   --success: #0f766e;
 
+  /* Acento de marca blanca. ThemeProvider los reemplaza con el color de cada cliente
+     (ya ajustado para contrastar sobre --ink). El fondo nunca cambia. */
+  --accent: var(--blue);
+  --accent-strong: var(--blue-strong);
+  --accent-soft: var(--blue-soft);
+  --accent-contrast: var(--white);
+  --accent-rgb: 47, 91, 255;
+
   --font-display: 'Sora', 'Inter', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
@@ -34,6 +42,8 @@
 
   --container: 1240px;
   --gutter: clamp(20px, 4vw, 40px);
+  /* Separación entre columnas de la grilla de 12: nunca suma más que la pantalla. */
+  --grid-gap: clamp(12px, 2.5vw, 32px);
   --header-h: 72px;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);

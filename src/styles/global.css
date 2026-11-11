@@ -113,3 +113,41 @@ select {
     outline-color: rgba(47, 91, 255, 0);
   }
 }
+
+/* Sin selección de texto: el doble clic no marca palabras y arrastrar no resalta nada.
+   Los campos del formulario siguen siendo editables y seleccionables. */
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+textarea,
+select,
+[contenteditable='true'] {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+
+img,
+video,
+svg {
+  -webkit-user-drag: none;
+}
+
+/* Base responsive: nada se sale a lo ancho y las palabras largas (correos, URL) se parten. */
+html,
+body {
+  overflow-x: clip;
+}
+
+body {
+  overflow-wrap: break-word;
+}
+
+video {
+  max-width: 100%;
+}

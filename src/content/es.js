@@ -9,6 +9,7 @@ export const hero = {
   primaryCta: 'Ponlo en marcha',
   secondaryCta: 'Ver qué hacemos',
   sceneLabel: 'Logo de BVA en 3D: una B formada por una base y dos botones de play',
+  videoLabel: 'Video de tecnología: interfaces y automatizaciones que avanzan con el scroll',
 }
 
 export const services = {

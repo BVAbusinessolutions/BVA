@@ -9,11 +9,11 @@
   min-height: 52px;
   padding: 0 var(--s-5) 0 var(--s-4);
   border-radius: 999px;
-  background: var(--blue);
-  color: var(--white);
+  background: var(--accent);
+  color: var(--accent-contrast);
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 12px 30px -10px rgba(47, 91, 255, 0.7);
+  box-shadow: 0 12px 30px -10px rgba(var(--accent-rgb), 0.7);
   transition:
     transform var(--dur-fast) var(--ease-out),
     background-color var(--dur-fast) var(--ease-out);
@@ -21,7 +21,7 @@
 }
 
 .button:hover {
-  background: var(--blue-strong);
+  background: var(--accent-strong);
   transform: translateY(-2px);
 }
 

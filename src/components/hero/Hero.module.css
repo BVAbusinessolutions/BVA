@@ -11,8 +11,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--s-6);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--s-6) var(--grid-gap);
   align-items: center;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .accent {
-  color: var(--blue);
+  color: var(--accent);
 }
 
 .lead {
@@ -93,11 +93,35 @@
     grid-column: 1 / -1;
   }
 
+  /* En pantallas angostas el titular va primero y el logo 3D queda debajo, más pequeño. */
   .scene {
     grid-column: 1 / -1;
-    order: -1;
-    height: 300px;
-    margin: 0 calc(var(--gutter) * -1);
+    height: clamp(220px, 50vw, 340px);
+    margin: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    padding-top: calc(var(--header-h) + var(--s-6));
+  }
+
+  .title {
+    font-size: clamp(2.6rem, 13vw, 3.4rem);
+  }
+
+  .lead {
+    margin-top: var(--s-5);
+    font-size: 1rem;
+  }
+
+  .actions {
+    margin-top: var(--s-6);
+  }
+
+  /* Botones a todo el ancho: más fáciles de tocar con el pulgar. */
+  .actions > * {
+    flex: 1 1 100%;
   }
 }
 

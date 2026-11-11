@@ -1,10 +1,16 @@
 .banner {
-  padding: var(--s-9) 0;
-  background: var(--mist);
-  border-top: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  padding: var(--s-10) 0;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(var(--accent-rgb), 0.22), transparent 60%), var(--ink);
+  border-top: 1px solid var(--line-dark);
+  color: var(--white);
 }
 
 .inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -19,5 +25,5 @@
 .lead {
   margin-top: var(--s-2);
   max-width: 34rem;
-  color: var(--muted);
+  color: var(--muted-on-dark);
 }

@@ -28,12 +28,28 @@
 }
 
 .primary {
-  background: var(--blue);
-  color: var(--white);
+  background: var(--accent);
+  color: var(--accent-contrast);
 }
 
 .primary:hover {
-  background: var(--blue-strong);
+  background: var(--accent-strong);
+}
+
+/* Borde brillante con el acento del cliente, para fondos oscuros. */
+.glow {
+  background: rgba(var(--accent-rgb), 0.08);
+  color: var(--accent-soft);
+  border-color: var(--accent);
+  box-shadow:
+    0 0 0 1px rgba(var(--accent-rgb), 0.25),
+    0 0 24px rgba(var(--accent-rgb), 0.35);
+}
+
+.glow:hover {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  box-shadow: 0 0 32px rgba(var(--accent-rgb), 0.55);
 }
 
 .secondary {

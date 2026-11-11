@@ -1,5 +1,7 @@
 import LazyScene from '../three/LazyScene'
 import SectionHeading from '../ui/SectionHeading'
+import VideoBackdrop from '../ui/VideoBackdrop'
+import { VIDEOS } from '../../config/videos'
 import ContactForm from './ContactForm'
 import ContactDirect from './ContactDirect'
 import { HOME_ANCHORS } from '../../routing/paths'
@@ -12,7 +14,17 @@ const loadPlayField = () => import('../three/scenes/PlayFieldScene')
 export default function ContactSection({ headingAs = 'h2' }) {
   return (
     <section id={HOME_ANCHORS.contact} className={styles.section} aria-labelledby="contacto-title">
-      <LazyScene loader={loadPlayField} label={contact.sceneLabel} className={styles.background} />
+      <VideoBackdrop
+        video={VIDEOS.contact}
+        veil="left"
+        fallback={
+          <LazyScene
+            loader={loadPlayField}
+            label={contact.sceneLabel}
+            className={styles.background}
+          />
+        }
+      />
 
       <div className={`container ${styles.grid}`}>
         <div className={styles.copy}>

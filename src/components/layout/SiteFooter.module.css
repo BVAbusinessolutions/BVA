@@ -7,8 +7,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--s-6);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--s-6) var(--grid-gap);
   align-items: start;
 }
 
@@ -74,5 +74,12 @@
   .brand,
   .column {
     grid-column: 1 / -1;
+  }
+}
+
+/* Espacio para que el botón flotante de WhatsApp no tape el final del pie. */
+@media (max-width: 520px) {
+  .footer {
+    padding-bottom: calc(var(--s-9) + env(safe-area-inset-bottom));
   }
 }

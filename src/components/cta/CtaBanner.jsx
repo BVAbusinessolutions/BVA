@@ -1,4 +1,6 @@
 import Button from '../ui/Button'
+import VideoBackdrop from '../ui/VideoBackdrop'
+import { VIDEOS } from '../../config/videos'
 import { PATHS } from '../../routing/paths'
 import { cta } from '../../content/es'
 import styles from './CtaBanner.module.css'
@@ -7,6 +9,7 @@ import styles from './CtaBanner.module.css'
 export default function CtaBanner() {
   return (
     <section className={styles.banner} aria-labelledby="cta-title">
+      <VideoBackdrop video={VIDEOS.cta} veil="center" />
       <div className={`container ${styles.inner}`}>
         <div>
           <h2 id="cta-title" className={styles.title}>

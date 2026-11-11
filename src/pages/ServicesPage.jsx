@@ -4,6 +4,7 @@ import ServicesSection from '../components/services/ServicesSection'
 import ProcessSection from '../components/process/ProcessSection'
 import CtaBanner from '../components/cta/CtaBanner'
 import { PATHS } from '../routing/paths'
+import { VIDEOS } from '../config/videos'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { pages, services } from '../content/es'
 
@@ -16,6 +17,7 @@ export default function ServicesPage() {
         eyebrow={services.eyebrow}
         title={pages.services.heroTitle}
         lead={pages.services.heroLead}
+        video={VIDEOS.services}
       >
         <Button to={PATHS.contact}>Ponlo en marcha</Button>
       </PageHero>

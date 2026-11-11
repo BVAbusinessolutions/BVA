@@ -16,8 +16,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--s-6);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--s-6) var(--grid-gap);
   align-items: start;
 }
 
@@ -70,4 +70,10 @@
   .formColumn {
     grid-column: 1 / -1;
   }
+}
+
+/* Contenido por encima del video de fondo. */
+.grid {
+  position: relative;
+  z-index: 1;
 }

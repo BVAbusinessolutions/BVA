@@ -35,3 +35,26 @@ export async function postJson(url, body, { timeoutMs = 10000 } = {}) {
     clearTimeout(timer)
   }
 }
+
+/**
+ * Pide JSON por GET con tiempo límite.
+ * @param {string} url
+ * @param {{ timeoutMs?: number, signal?: AbortSignal }} [options]
+ */
+export async function getJson(url, { timeoutMs = 10000, signal } = {}) {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), timeoutMs)
+  const onAbort = () => controller.abort()
+  signal?.addEventListener('abort', onAbort)
+  try {
+    const response = await fetch(url, {
+      headers: { Accept: 'application/json' },
+      signal: controller.signal,
+    })
+    if (!response.ok) throw new HttpError(`Error HTTP ${response.status}`, response.status)
+    return await response.json()
+  } finally {
+    clearTimeout(timer)
+    signal?.removeEventListener('abort', onAbort)
+  }
+}
