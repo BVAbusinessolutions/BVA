@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockups de la plataforma BVA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --ground: #fff; --ink: #0a0a0b; --blue: #2f5bff; --mist: #f4f4f5; --muted: #52525b; --line: #e4e4e7; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ececee; color: var(--ink); font: 13px/1.5 Inter, system-ui, sans-serif; padding: 32px 16px; }
+  h1 { font: 800 30px/1.1 Sora, Inter, sans-serif; margin: 0 0 6px; }
+  .lead { color: var(--muted); margin: 0 0 8px; }
+  .label { font: 600 12px Inter; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 36px 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(460px, 1fr)); gap: 20px; }
+  .card { background: var(--ground); border: 1px solid var(--line); border-radius: 12px; padding: 14px; min-width: 0; }
+  .card h3 { font: 700 15px Sora, Inter, sans-serif; margin: 0; }
+  .meta { font-size: 12px; color: var(--muted); margin: 2px 0 10px; }
+  .app { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: grid; grid-template-columns: 124px 1fr; min-height: 260px; }
+  .side { background: var(--ink); color: #d4d4d8; padding: 10px 8px; font-size: 11px; }
+  .side .brand { color: #fff; font: 800 13px Sora, Inter, sans-serif; margin: 2px 6px 12px; }
+  .side .item { padding: 5px 8px; border-radius: 6px; margin-bottom: 2px; }
+  .side .item.on { background: var(--blue); color: #fff; }
+  .side .sec { color: #71717a; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; margin: 10px 8px 4px; }
+  .main { padding: 12px; background: var(--ground); min-width: 0; }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .title { font: 700 14px Sora, Inter, sans-serif; }
+  .btn { display: inline-block; background: var(--blue); color: #fff; border-radius: 8px; padding: 6px 10px; font-size: 11px; font-weight: 600; }
+  .btn.ghost { background: var(--ground); color: var(--ink); border: 1px solid var(--ink); }
+  .btn.danger { background: var(--ground); color: var(--ink); border: 1px solid var(--muted); }
+  .btn.full { display: block; text-align: center; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 10px; }
+  .kpi { background: var(--mist); border-radius: 8px; padding: 8px; }
+  .kpi b { display: block; font: 800 16px Sora, Inter, sans-serif; }
+  .kpi span { font-size: 10px; color: var(--muted); }
+  .list { display: grid; gap: 5px; }
+  .row-i { display: flex; justify-content: space-between; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 7px; padding: 6px 8px; font-size: 11px; }
+  .chip { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 5px; background: var(--mist); white-space: nowrap; }
+  .chip.on { background: var(--blue); color: #fff; }
+  .chip.warn { background: var(--ink); color: #fff; }
+  .chip.off { background: var(--ground); border: 1px solid var(--muted); color: var(--muted); }
+  .field { font-size: 10px; color: var(--muted); margin-bottom: 2px; }
+  .input { border: 1px solid var(--muted); border-radius: 7px; padding: 6px 9px; font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+  .check { font-size: 11px; color: var(--muted); margin: 4px 0; }
+  .table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  .table th, .table td { text-align: left; padding: 5px; border-bottom: 1px solid var(--line); }
+  .table th { color: var(--muted); font-weight: 600; }
+  .switch { width: 30px; height: 16px; border-radius: 999px; background: var(--mist); position: relative; display: inline-block; flex: none; }
+  .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px var(--muted); }
+  .switch.on { background: var(--blue); }
+  .switch.on::after { left: 16px; box-shadow: none; }
+  .skel { background: var(--mist); border-radius: 5px; height: 14px; margin-bottom: 6px; }
+  .w60 { width: 60%; } .w40 { width: 40%; } .h50 { height: 50px; }
+  .center { display: grid; place-items: center; min-height: 260px; background: var(--mist); border-radius: 10px; padding: 12px; }
+  .auth { width: 100%; max-width: 250px; background: var(--ground); border-radius: 12px; padding: 16px; }
+  .logo { font: 800 15px Sora, Inter, sans-serif; display: flex; gap: 6px; align-items: center; margin-bottom: 12px; }
+  .mob { width: 240px; border: 7px solid var(--ink); border-radius: 26px; padding: 12px 10px; background: var(--ground); margin: 0 auto; font-size: 11px; }
+  .mob-wrap { display: flex; justify-content: center; align-items: center; min-height: 260px; background: var(--mist); border-radius: 10px; padding: 10px; margin-top: 10px; }
+  .err { font: 800 56px Sora, Inter, sans-serif; color: var(--ink); line-height: 1; }
+  .empty { text-align: center; padding: 22px 10px; color: var(--muted); }
+  .steps { display: grid; gap: 5px; font-size: 11px; }
+  .step { display: flex; gap: 6px; align-items: center; }
+  .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--mist); display: grid; place-items: center; font-size: 10px; font-weight: 700; }
+  .dot.on { background: var(--blue); color: #fff; }
+  .legal { font-size: 11px; } .legal h4 { font: 700 12px Sora, Inter, sans-serif; margin: 8px 0 3px; } .legal p { margin: 2px 0 6px; }
+  .note { font-size: 11px; color: var(--muted); margin-top: 8px; }
+  footer { margin-top: 40px; font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<h1>Mockups de la plataforma BVA</h1>
+<p class="lead">Todas las pantallas de la aplicaci&oacute;n: acceso, superadmin, administrador, colaborador, cliente, m&oacute;dulos, cuenta, privacidad y estados. Baja fidelidad, con datos de ejemplo. Los m&oacute;viles aparecen en las pantallas que m&aacute;s se usan en el celular.</p>
+
+<div class="label">1. Acceso y autenticaci&oacute;n</div>
+<div class="grid">
+
+  <section class="card" id="login">
+    <h3>A1. Inicio de sesi&oacute;n</h3>
+    <div class="meta">Todos los roles · RF-01 · RNF-01 · escritorio y m&oacute;vil</div>
+    <div class="center"><div class="auth">
+      <div class="logo">&#9654; BVA</div>
+      <div class="field">Correo</div><div class="input">tu@empresa.cr</div>
+      <div class="field">Contrase&ntilde;a</div><div class="input">••••••••</div>
+      <div class="check">&#9744; Recordarme en este equipo</div>
+      <span class="btn full">Iniciar sesi&oacute;n</span>
+      <div class="note" style="text-align:center;margin-top:8px">&iquest;Olvidaste tu contrase&ntilde;a?</div>
+      <div class="note" style="color:#b91c1c;margin-top:6px">Correo o contrase&ntilde;a incorrectos. Revisa tus datos.</div>
+    </div></div>
+    <div class="mob-wrap"><div class="mob">
+      <div class="logo">&#9654; BVA</div>
+      <div class="field">Correo</div><div class="input">tu@empresa.cr</div>
+      <div class="field">Contrase&ntilde;a</div><div class="input">••••••••</div>
+      <span class="btn full">Iniciar sesi&oacute;n</span>
+    </div></div>
+  </section>
+
+  <section class="card" id="login-futuro">
+    <h3>A2. Verificaci&oacute;n en dos pasos (futuro)</h3>
+    <div class="meta">Administrador y superadmin · RNF-01 · se activa en la fase 2</div>
+    <div class="center"><div class="auth">
+      <div class="logo">&#9654; BVA</div>
+      <div class="note">Enviamos un c&oacute;digo de 6 d&iacute;gitos a tu correo. Vence en 5 minutos.</div>
+      <div class="field" style="margin-top:8px">C&oacute;digo</div><div class="input">• • • • • •</div>
+      <span class="btn full">Verificar</span>
+      <div class="note" style="text-align:center;margin-top:8px">Reenviar c&oacute;digo</div>
+    </div></div>
+  </section>
+
+  <section class="card" id="registro">
+    <h3>A3. Registro p&uacute;blico o interno</h3>
+    <div class="meta">Visitante (p&uacute;blico) o administrador (interno) · RF-02, RF-09</div>
+    <div class="center"><div class="auth">
+      <div class="logo">&#9654; BVA</div>
+      <div class="field">Nombre completo</div><div class="input">Nombre y apellidos</div>
+      <div class="field">Correo</div><div class="input">tu@empresa.cr</div>
+      <div class="field">Contrase&ntilde;a (m&iacute;nimo 8 caracteres)</div><div class="input">••••••••</div>
+      <div class="check">&#9744; He le&iacute;do y acepto los T&eacute;rminos y la Pol&iacute;tica de privacidad (obligatorio)</div>
+      <div class="check">&#9744; Acepto recibir informaci&oacute;n comercial (opcional)</div>
+      <span class="btn full">Crear cuenta</span>
+    </div></div>
+  </section>
+
+  <section class="card" id="recuperar">
+    <h3>A4. Recuperar y cambiar contrase&ntilde;a</h3>
+    <div class="meta">Todos los roles · RF-04 · el enlace vence en 30 minutos</div>
+    <div class="center"><div class="auth">
+      <div class="logo">&#9654; BVA</div>
+      <div class="field">Nueva contrase&ntilde;a</div><div class="input">••••••••</div>
+      <div class="field">Repetir contrase&ntilde;a</div><div class="input">••••••••</div>
+      <div class="steps">
+        <div class="step"><span class="dot on">&#10003;</span> Al menos 8 caracteres</div>
+        <div class="step"><span class="dot">&#8226;</span> Una may&uacute;scula y un n&uacute;mero</div>
+      </div>
+      <span class="btn full" style="margin-top:10px">Guardar contrase&ntilde;a</span>
+    </div></div>
+  </section>
+
+</div>
+
+<div class="label">2. Panel de superadmin BVA</div>
+<div class="grid">
+
+  <section class="card" id="sa-empresas">
+    <h3>B1. Empresas clientes</h3>
+    <div class="meta">Superadmin BVA · RF-11, RF-16</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="sec">Superadmin</div><div class="item">Inicio</div><div class="item on">Empresas</div><div class="item">Seguimiento</div><div class="item">Planes</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Empresas</span><span class="btn">+ Nueva empresa</span></div>
+        <table class="table">
+          <tr><th>Empresa</th><th>Plan</th><th>M&oacute;dulos</th><th>Estado</th></tr>
+          <tr><td>Distribuidora Ejemplo</td><td>Profesional</td><td>3</td><td><span class="chip on">Activa</span></td></tr>
+          <tr><td>Cl&iacute;nica Ejemplo</td><td>B&aacute;sico</td><td>1</td><td><span class="chip">En implementaci&oacute;n</span></td></tr>
+          <tr><td>Soda Ejemplo</td><td>Empresarial</td><td>5</td><td><span class="chip warn">Revisar pago</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="sa-modulos">
+    <h3>B2. M&oacute;dulos por empresa</h3>
+    <div class="meta">Superadmin BVA · RF-11, HU-07 · el cambio aplica sin nuevo despliegue</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="sec">Superadmin</div><div class="item">Empresas</div><div class="item on">M&oacute;dulos</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Distribuidora Ejemplo</span><span class="chip">Profesional</span></div>
+        <div class="list">
+          <div class="row-i"><span>Agentes WhatsApp</span><span class="switch on"></span></div>
+          <div class="row-i"><span>Log&iacute;stica</span><span class="switch on"></span></div>
+          <div class="row-i"><span>Redes sociales</span><span class="switch on"></span></div>
+          <div class="row-i"><span>Pacientes y citas</span><span class="switch"></span></div>
+        </div>
+        <div class="note">Cada cambio queda en la bit&aacute;cora con su autor.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="sa-nueva">
+    <h3>B3. Nueva empresa desde plantilla</h3>
+    <div class="meta">Superadmin BVA · RF-17, HU-11 · personalizaci&oacute;n</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="sec">Superadmin</div><div class="item on">Empresas</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Nueva empresa</span></div>
+        <div class="steps" style="margin-bottom:8px">
+          <div class="step"><span class="dot on">1</span> Datos</div>
+          <div class="step"><span class="dot on">2</span> Marca: logo y colores</div>
+          <div class="step"><span class="dot">3</span> M&oacute;dulos y plan</div>
+          <div class="step"><span class="dot">4</span> Administrador inicial</div>
+        </div>
+        <div class="field">Nombre comercial</div><div class="input">Nombre</div>
+        <div class="field">Color principal</div><div class="input">#2F5BFF</div>
+        <span class="btn">Siguiente</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="sa-seguimiento">
+    <h3>B4. Seguimiento de clientes (interno)</h3>
+    <div class="meta">Equipo BVA · RF-16 · notas, tickets y estado de implementaci&oacute;n</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="sec">Interno</div><div class="item">Empresas</div><div class="item on">Seguimiento</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Seguimiento</span></div>
+        <div class="list">
+          <div class="row-i"><span>Distribuidora Ejemplo · piloto</span><span class="chip on">En marcha</span></div>
+          <div class="row-i"><span>Cl&iacute;nica Ejemplo · configuraci&oacute;n</span><span class="chip">Pendiente</span></div>
+          <div class="row-i"><span>Ticket: no llega la factura</span><span class="chip warn">Abierto</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="label">3. Panel de administrador de empresa</div>
+<div class="grid">
+
+  <section class="card" id="adm-inicio">
+    <h3>C1. Inicio del administrador</h3>
+    <div class="meta">Administrador · RF-03, RF-06, RF-07 · escritorio y m&oacute;vil</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item on">Inicio</div><div class="item">Usuarios</div><div class="item">Roles</div><div class="item">Agentes</div><div class="item">M&oacute;dulos</div><div class="item">Bit&aacute;cora</div><div class="item">Perfil</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Inicio</span><span class="chip">Distribuidora Ejemplo</span></div>
+        <div class="kpis">
+          <div class="kpi"><b>12</b><span>Usuarios</span></div>
+          <div class="kpi"><b>5</b><span>Agentes activos</span></div>
+          <div class="kpi"><b>&#8353;502,40</b><span>Venta BCCR</span></div>
+          <div class="kpi"><b>2</b><span>Pendientes</span></div>
+        </div>
+        <div class="list">
+          <div class="row-i"><span>Factura #1832 le&iacute;da por agente</span><span class="chip on">OK</span></div>
+          <div class="row-i"><span>Publicaci&oacute;n por aprobar</span><span class="chip warn">Revisar</span></div>
+          <div class="row-i"><span>Cita por confirmar · Pedro Solano</span><span class="chip">WhatsApp</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="mob-wrap"><div class="mob">
+      <b style="font-family:Sora">Inicio</b>
+      <div class="kpis" style="grid-template-columns:1fr 1fr;margin-top:6px"><div class="kpi"><b>12</b><span>Usuarios</span></div><div class="kpi"><b>5</b><span>Agentes</span></div></div>
+      <div class="list"><div class="row-i"><span>Factura le&iacute;da</span><span class="chip on">OK</span></div><div class="row-i"><span>Publicaci&oacute;n</span><span class="chip warn">Revisar</span></div></div>
+    </div></div>
+  </section>
+
+  <section class="card" id="adm-usuarios">
+    <h3>C2. Usuarios</h3>
+    <div class="meta">Administrador · RF-05 · crear, cambiar rol o desactivar</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Usuarios</div><div class="item">Roles</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Usuarios</span><span class="btn">+ Invitar</span></div>
+        <table class="table">
+          <tr><th>Nombre</th><th>Rol</th><th>Estado</th></tr>
+          <tr><td>Mar&iacute;a Jim&eacute;nez</td><td>Colaborador</td><td><span class="chip on">Activo</span></td></tr>
+          <tr><td>Juan P&eacute;rez</td><td>Administrador</td><td><span class="chip on">Activo</span></td></tr>
+          <tr><td>Luis Rojas</td><td>Colaborador</td><td><span class="chip off">Desactivado</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="adm-roles">
+    <h3>C3. Roles y permisos</h3>
+    <div class="meta">Administrador · RF-03, RNF-02 · la matriz la valida el servidor</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Usuarios</div><div class="item on">Roles</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Permisos por rol</span></div>
+        <table class="table">
+          <tr><th>M&oacute;dulo</th><th>Admin</th><th>Colab.</th><th>Cliente</th><th>Auditor</th></tr>
+          <tr><td>Agentes</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>&#8212;</td></tr>
+          <tr><td>Log&iacute;stica</td><td>&#10003;</td><td>&#10003;</td><td>&#8212;</td><td>&#10003;</td></tr>
+          <tr><td>Usuarios</td><td>&#10003;</td><td>&#8212;</td><td>&#8212;</td><td>&#8212;</td></tr>
+          <tr><td>Bit&aacute;cora</td><td>&#10003;</td><td>&#8212;</td><td>&#8212;</td><td>&#10003;</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="adm-agentes">
+    <h3>C4. Agentes de IA</h3>
+    <div class="meta">Administrador y colaborador seg&uacute;n rol · RF-06</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Agentes</div><div class="item">Bit&aacute;cora</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Agentes</span></div>
+        <div class="list">
+          <div class="row-i"><span>Lector de facturas</span><span class="chip on">Activo</span></div>
+          <div class="row-i"><span>Conversacional (RAG)</span><span class="chip on">Activo</span></div>
+          <div class="row-i"><span>Contable</span><span class="chip off">Inactivo</span></div>
+          <div class="row-i"><span>Recursos humanos</span><span class="chip off">Inactivo</span></div>
+          <div class="row-i"><span>Atenci&oacute;n al cliente</span><span class="chip on">Activo</span></div>
+          <div class="row-i"><span>Redes sociales</span><span class="chip on">Activo</span></div>
+        </div>
+        <div class="note">Los otros tres agentes (generador multimedia, analista y cumplimiento) aparecen igual.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="adm-agente-detalle">
+    <h3>C5. Detalle de un agente</h3>
+    <div class="meta">Plantilla para los nueve agentes · RF-10</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Agentes</div><div class="item on">Lector de facturas</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Lector de facturas</span><span class="chip on">Activo</span></div>
+        <div class="field">Entrada</div><div class="input">Correos con PDF, XML o imagen</div>
+        <div class="field">Salida</div><div class="input">Emisor, fecha, montos e impuestos</div>
+        <div class="field">Modelo de IA y costo estimado</div><div class="input">Proveedor configurado · US$ 0,02 por factura</div>
+        <div class="list">
+          <div class="row-i"><span>Ejecuci&oacute;n 19/11 08:12</span><span class="chip on">OK</span></div>
+          <div class="row-i"><span>Ejecuci&oacute;n 19/11 07:40</span><span class="chip warn">Revisar</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="adm-bitacora">
+    <h3>C6. Bit&aacute;cora de agentes</h3>
+    <div class="meta">Administrador y auditor · RF-10 · solo lectura para auditor</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Bit&aacute;cora</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Bit&aacute;cora</span><span class="chip">Filtrar: 7 d&iacute;as</span></div>
+        <table class="table">
+          <tr><th>Fecha</th><th>Agente</th><th>Resultado</th><th>Aprob&oacute;</th></tr>
+          <tr><td>19/11 08:12</td><td>Facturas</td><td><span class="chip on">OK</span></td><td>Autom&aacute;tico</td></tr>
+          <tr><td>19/11 07:40</td><td>Facturas</td><td><span class="chip warn">Revisar</span></td><td>&#8212;</td></tr>
+          <tr><td>18/11 16:05</td><td>Redes</td><td><span class="chip on">Aprobado</span></td><td>Mar&iacute;a J.</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="adm-tipo-cambio">
+    <h3>C7. Tipo de cambio BCCR</h3>
+    <div class="meta">Administrador y colaborador · RF-07 · muestra la fecha del dato</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Tipo de cambio</div></div>
+      <div class="main">
+        <div class="top"><span class="title">D&oacute;lar hoy</span><span class="chip">19/11/2026</span></div>
+        <div class="kpis"><div class="kpi"><b>&#8353;498,10</b><span>Compra</span></div><div class="kpi"><b>&#8353;502,40</b><span>Venta</span></div><div class="kpi"><b>&#8353;500,25</b><span>Promedio</span></div></div>
+        <svg viewBox="0 0 300 70" width="100%" height="70" aria-hidden="true"><polyline points="0,50 40,42 80,46 120,30 160,34 200,22 240,26 300,14" fill="none" stroke="#2f5bff" stroke-width="2"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="adm-clima">
+    <h3>C8. Clima</h3>
+    <div class="meta">Administrador y colaborador · RF-18 · Open-Meteo u OpenWeather</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Clima</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Clima en San Jos&eacute;</span><span class="chip">Actualizado 08:00</span></div>
+        <div class="kpis"><div class="kpi"><b>24 &deg;C</b><span>Ahora</span></div><div class="kpi"><b>60 %</b><span>Lluvia hoy</span></div><div class="kpi"><b>Vie</b><span>Mejor d&iacute;a para despachar</span></div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="label">4. M&oacute;dulos verticales y redes sociales</div>
+<div class="grid">
+
+  <section class="card" id="log-tablero">
+    <h3>D1. Log&iacute;stica: tablero de despachos</h3>
+    <div class="meta">Log&iacute;stica · RF-13, HU-09 · escritorio y m&oacute;vil</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Log&iacute;stica</div><div class="item">Camiones</div><div class="item">Conductores</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Despachos de hoy</span><span class="btn">+ Despacho</span></div>
+        <table class="table">
+          <tr><th>Cami&oacute;n</th><th>Conductor</th><th>Ruta</th><th>Estado</th></tr>
+          <tr><td>C-01</td><td>Juan P&eacute;rez</td><td>San Jos&eacute;</td><td><span class="chip on">En ruta</span></td></tr>
+          <tr><td>C-02</td><td>Luis Rojas</td><td>Heredia</td><td><span class="chip">Pendiente</span></td></tr>
+          <tr><td>C-03</td><td>Ana Mora</td><td>Cartago</td><td><span class="chip off">Entregado</span></td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="mob-wrap"><div class="mob">
+      <b style="font-family:Sora">Despachos</b>
+      <div class="list" style="margin-top:6px"><div class="row-i"><span>C-01 · San Jos&eacute;</span><span class="chip on">En ruta</span></div><div class="row-i"><span>C-02 · Heredia</span><span class="chip">Pendiente</span></div></div>
+    </div></div>
+  </section>
+
+  <section class="card" id="log-mapa">
+    <h3>D2. Mapa de flota</h3>
+    <div class="meta">Log&iacute;stica · RF-19 · Google Maps Platform</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Log&iacute;stica</div><div class="item on">Mapa</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Camiones en ruta</span></div>
+        <svg viewBox="0 0 300 130" width="100%" height="130" aria-hidden="true" style="background:var(--mist);border-radius:8px"><path d="M0 100 Q80 60 160 85 T300 50" fill="none" stroke="#a1a1aa" stroke-width="3"/><circle cx="70" cy="80" r="6" fill="#2f5bff"/><circle cx="190" cy="70" r="6" fill="#2f5bff"/><circle cx="260" cy="40" r="6" fill="#0a0a0b"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="cit-agenda">
+    <h3>D3. Pacientes y citas</h3>
+    <div class="meta">Consultorio · RF-12, HU-08 · escritorio y m&oacute;vil</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Citas</div><div class="item">Pacientes</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Citas de la semana</span><span class="btn">+ Cita</span></div>
+        <div class="list">
+          <div class="row-i"><span>Mar 10:00 · Ana Rojas</span><span class="chip on">Confirmada</span></div>
+          <div class="row-i"><span>Mar 11:30 · Pedro Solano</span><span class="chip warn">Por confirmar</span></div>
+          <div class="row-i"><span>Mi&eacute; 09:00 · Carla Vega</span><span class="chip">Reprogramar</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="mob-wrap"><div class="mob">
+      <b style="font-family:Sora">Citas</b>
+      <div class="list" style="margin-top:6px"><div class="row-i"><span>Mar 10:00 · Ana</span><span class="chip on">OK</span></div><div class="row-i"><span>Mar 11:30 · Pedro</span><span class="chip warn">Por confirmar</span></div></div>
+    </div></div>
+  </section>
+
+  <section class="card" id="red-borradores">
+    <h3>D4. Redes sociales: borradores y aprobaci&oacute;n</h3>
+    <div class="meta">Marketing · RF-14, RF-15, HU-10 · nada se publica sin aprobaci&oacute;n</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Redes</div><div class="item">Calendario</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Por aprobar</span><span class="btn">Programar</span></div>
+        <div class="list">
+          <div class="row-i"><span>Instagram · Promo de temporada</span><span><span class="btn ghost">Rechazar</span> <span class="btn">Aprobar</span></span></div>
+          <div class="row-i"><span>Facebook · Respuesta a comentario</span><span><span class="btn ghost">Rechazar</span> <span class="btn">Aprobar</span></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="mob-wrap"><div class="mob">
+      <b style="font-family:Sora">Por aprobar</b>
+      <div class="list" style="margin-top:6px"><div class="row-i"><span>Promo de temporada</span><span class="chip">Revisar</span></div></div>
+      <span class="btn full" style="margin-top:8px">Aprobar</span>
+    </div></div>
+  </section>
+
+  <section class="card" id="red-calendario">
+    <h3>D5. Calendario de publicaciones</h3>
+    <div class="meta">Marketing · RF-14 · programar en la fecha aprobada</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Redes</div><div class="item on">Calendario</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Noviembre 2026</span></div>
+        <table class="table"><tr><th>Lun</th><th>Mar</th><th>Mi&eacute;</th><th>Jue</th><th>Vie</th></tr>
+          <tr><td>16</td><td>17</td><td>18</td><td><span class="chip on">19 Promo</span></td><td>20</td></tr>
+          <tr><td>23</td><td>24</td><td>25</td><td>26</td><td><span class="chip">27 Pendiente</span></td></tr></table>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="label">5. Cliente y colaborador</div>
+<div class="grid">
+
+  <section class="card" id="col-inicio">
+    <h3>E1. Inicio del colaborador</h3>
+    <div class="meta">Colaborador · RF-03, HU-02 · solo sus m&oacute;dulos</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item on">Inicio</div><div class="item">Facturas</div><div class="item">Contabilidad</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Mis tareas</span></div>
+        <div class="list"><div class="row-i"><span>Revisar 4 facturas nuevas</span><span class="chip">Hoy</span></div><div class="row-i"><span>Conciliar gastos de noviembre</span><span class="chip">Viernes</span></div></div>
+        <div class="skel w60" style="margin-top:10px"></div><div class="skel w40"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="cli-inicio">
+    <h3>E2. Inicio del cliente</h3>
+    <div class="meta">Cliente / usuario final · RF-03, RF-06 · asistente y su cuenta</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item on">Inicio</div><div class="item">Mis datos</div><div class="item">Asistente</div><div class="item">Perfil</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Hola, Ana</span></div>
+        <div class="list"><div class="row-i"><span>Mi pr&oacute;xima cita</span><span class="chip on">Mar 10:00</span></div><div class="row-i"><span>Mis facturas</span><span class="chip">2 pendientes</span></div></div>
+        <div style="margin-top:8px"><span class="btn">Preguntar al asistente</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="asistente">
+    <h3>E3. Asistente conversacional (RAG)</h3>
+    <div class="meta">Cliente y colaborador seg&uacute;n rol · cita la fuente de cada respuesta</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Asistente</div></div>
+      <div class="main">
+        <div class="list">
+          <div class="row-i"><span>&iquest;Cu&aacute;l es el horario de entrega?</span></div>
+          <div class="row-i"><span>Entregamos de lunes a s&aacute;bado de 8:00 a 17:00. <i>Fuente: pol&iacute;tica de env&iacute;os</i></span></div>
+          <div class="row-i"><span>Escribe tu pregunta…</span><span class="btn">Enviar</span></div>
+        </div>
+        <div class="note">Si la respuesta no est&aacute; en los documentos, el asistente pasa la conversaci&oacute;n a una persona.</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="label">6. Cuenta, privacidad y estados</div>
+<div class="grid">
+
+  <section class="card" id="perfil">
+    <h3>F1. Perfil y consentimientos</h3>
+    <div class="meta">Todos los roles · RF-08, RF-09, RNF-07</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Perfil</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Mi perfil</span><span class="btn ghost">Editar</span></div>
+        <div class="list">
+          <div class="row-i"><span>Nombre</span><b>Mar&iacute;a Jim&eacute;nez</b></div>
+          <div class="row-i"><span>Correo</span><b>maria@ejemplo.cr</b></div>
+          <div class="row-i"><span>Consentimiento de t&eacute;rminos</span><span class="chip on">v1.0 aceptada</span></div>
+          <div class="row-i"><span>Comunicaciones comerciales</span><span class="switch"></span></div>
+        </div>
+        <div style="margin-top:8px"><span class="btn danger">Solicitar eliminaci&oacute;n de mi cuenta</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="eliminar">
+    <h3>F2. Eliminaci&oacute;n de cuenta</h3>
+    <div class="meta">Todos los roles · RF-08, HU-06 · confirmaci&oacute;n de identidad</div>
+    <div class="center"><div class="auth">
+      <div class="steps">
+        <div class="step"><span class="dot on">1</span> Solicitud registrada</div>
+        <div class="step"><span class="dot on">2</span> C&oacute;digo confirmado</div>
+        <div class="step"><span class="dot">3</span> Datos eliminados o anonimizados</div>
+        <div class="step"><span class="dot">4</span> Notificaci&oacute;n final</div>
+      </div>
+      <div class="field" style="margin-top:8px">C&oacute;digo enviado a tu correo</div><div class="input">• • • • • •</div>
+      <span class="btn full">Confirmar eliminaci&oacute;n</span>
+    </div></div>
+  </section>
+
+  <section class="card" id="privacidad">
+    <h3>F3. Pol&iacute;tica de privacidad y t&eacute;rminos</h3>
+    <div class="meta">P&uacute;blico y dentro de la plataforma · Ley 8968</div>
+    <div class="center" style="place-items:start"><div class="legal" style="padding:6px">
+      <h4>1. Responsable</h4><p>BVA Business Solutions, Costa Rica.</p>
+      <h4>2. Datos que recopilamos</h4><p>Nombre, correo, tel&eacute;fono, empresa y datos de uso.</p>
+      <h4>3. Derechos</h4><p>Acceso, rectificaci&oacute;n, cancelaci&oacute;n y oposici&oacute;n desde tu perfil.</p>
+    </div></div>
+  </section>
+
+  <section class="card" id="err-403">
+    <h3>G1. Sin permiso (403)</h3>
+    <div class="meta">Cualquier rol · RNF-02</div>
+    <div class="center"><div class="empty"><div class="err">403</div><p><b>No tienes permiso para ver esta secci&oacute;n.</b></p><p>Si crees que es un error, pide acceso a tu administrador.</p><span class="btn ghost">Volver al inicio</span></div></div>
+  </section>
+
+  <section class="card" id="err-404">
+    <h3>G2. P&aacute;gina no encontrada (404)</h3>
+    <div class="meta">Cualquier rol</div>
+    <div class="center"><div class="empty"><div class="err">404</div><p><b>No encontramos esta p&aacute;gina.</b></p><span class="btn">Ir al inicio</span></div></div>
+  </section>
+
+  <section class="card" id="estado-vacio">
+    <h3>G3. Estado vac&iacute;o y carga</h3>
+    <div class="meta">Cualquier m&oacute;dulo · RNF-05</div>
+    <div class="center"><div class="empty" style="width:100%"><p><b>A&uacute;n no hay despachos.</b></p><p>Crea el primero para empezar a seguir las entregas.</p><span class="btn">+ Crear despacho</span></div></div>
+    <div class="skel" style="margin-top:10px"></div><div class="skel w60"></div><div class="skel w40"></div>
+  </section>
+
+  <section class="card" id="error-red">
+    <h3>G4. Error de conexi&oacute;n</h3>
+    <div class="meta">Cualquier m&oacute;dulo · RNF-05 · mensaje claro y reintento</div>
+    <div class="center"><div class="empty"><p><b>No pudimos cargar los datos.</b></p><p>Revisa tu conexi&oacute;n e int&eacute;ntalo de nuevo.</p><span class="btn">Reintentar</span></div></div>
+  </section>
+
+</div>
+
+<div class="label">7. CRM a la medida (m&oacute;dulo opcional)</div>
+<div class="grid">
+
+  <section class="card" id="crm-clientes">
+    <h3>H1. CRM: clientes</h3>
+    <div class="meta">Colaborador y administrador · RF-20 · m&oacute;dulo activable por empresa</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="sec">CRM</div><div class="item">Inicio</div><div class="item on">Clientes</div><div class="item">Oportunidades</div><div class="item">Citas</div><div class="item">Reportes</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Clientes</span><span class="btn">+ Nuevo cliente</span></div>
+        <table class="table">
+          <tr><th>Cliente</th><th>&Uacute;ltimo contacto</th><th>Etapa</th></tr>
+          <tr><td>Ana Rojas</td><td>Hoy, WhatsApp</td><td><span class="chip on">Cliente</span></td></tr>
+          <tr><td>Pedro Solano</td><td>Ayer, correo</td><td><span class="chip">Prospecto</span></td></tr>
+          <tr><td>Carla Vega</td><td>Hace 3 d&iacute;as</td><td><span class="chip warn">Cotizaci&oacute;n</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="crm-oportunidades">
+    <h3>H2. CRM: oportunidades (embudo)</h3>
+    <div class="meta">Colaborador y administrador · RF-20 · de la consulta al pago</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="sec">CRM</div><div class="item">Clientes</div><div class="item on">Oportunidades</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Oportunidades</span><span class="chip">Valor: &#8353;1.250.000</span></div>
+        <div class="kpis">
+          <div class="kpi"><b>&#8353;450.000</b><span>Nuevas</span></div>
+          <div class="kpi"><b>&#8353;600.000</b><span>Cotizadas</span></div>
+          <div class="kpi"><b>&#8353;200.000</b><span>Cerradas</span></div>
+        </div>
+        <div class="list"><div class="row-i"><span>Pedro Solano · cotizaci&oacute;n</span><span class="chip">Enviar seguimiento</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="crm-citas">
+    <h3>H3. CRM: citas y recordatorios</h3>
+    <div class="meta">Colaborador y consultorio · RF-12, RF-20 · recordatorio autom&aacute;tico por WhatsApp</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="sec">CRM</div><div class="item">Oportunidades</div><div class="item on">Citas</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Pr&oacute;ximas citas</span><span class="btn">+ Cita</span></div>
+        <div class="list">
+          <div class="row-i"><span>Ma&ntilde;ana 10:00 · Ana Rojas</span><span class="chip on">Recordatorio enviado</span></div>
+          <div class="row-i"><span>Vie 15:00 · Carla Vega</span><span class="chip">Pendiente</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="crm-reportes">
+    <h3>H4. CRM: reportes de la semana</h3>
+    <div class="meta">Administrador · RF-20 · reportes sin armar hojas de c&aacute;lculo</div>
+    <div class="app">
+      <div class="side"><div class="brand">BVA</div><div class="sec">CRM</div><div class="item">Citas</div><div class="item on">Reportes</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Esta semana</span></div>
+        <div class="kpis">
+          <div class="kpi"><b>8</b><span>Clientes nuevos</span></div>
+          <div class="kpi"><b>5</b><span>Ventas cerradas</span></div>
+          <div class="kpi"><b>92 %</b><span>Citas confirmadas</span></div>
+        </div>
+        <svg viewBox="0 0 300 60" width="100%" height="60" aria-hidden="true"><rect x="10" y="30" width="30" height="30" fill="#2f5bff"/><rect x="60" y="20" width="30" height="40" fill="#0a0a0b"/><rect x="110" y="34" width="30" height="26" fill="#2f5bff"/><rect x="160" y="12" width="30" height="48" fill="#0a0a0b"/><rect x="210" y="26" width="30" height="34" fill="#2f5bff"/></svg>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>Mockups de baja fidelidad de la plataforma BVA · datos de ejemplo · fase 1 (acceso, superadmin, administrador, m&oacute;dulos) y fase 2 (verificaci&oacute;n en dos pasos, asistente y calendario).</footer>
+</body>
+</html>
