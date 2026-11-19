@@ -44,7 +44,7 @@ export default function SiteFooter() {
       <div className={`container ${styles.legal}`}>
         <p>{footer.cookies}</p>
         <p>
-          © {year} {SITE.name}, {SITE.country}
+          © {year} {SITE.legalName}, {SITE.country}. Todos los derechos reservados. El nombre, logo y contenido del sitio son propiedad de {SITE.legalName}.
         </p>
       </div>
     </footer>

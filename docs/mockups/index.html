@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockups BVA Business Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #ffffff;
+    --fg: #0a0a0b;
+    --blue: #2f5bff;
+    --mist: #f4f4f5;
+    --muted: #52525b;
+    --line: #e4e4e7;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #fafafa; color: var(--fg); font: 14px/1.5 Inter, system-ui, sans-serif; padding: 40px max(16px, env(safe-area-inset-left, 0px)); }
+  header { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  h1 { font: 800 32px/1.1 Sora, Inter, sans-serif; margin: 0; }
+  .tag { color: var(--muted); margin: 4px 0 32px; }
+  .section-title { font: 700 13px Inter; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 40px 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 24px; }
+  .card { background: var(--ground); border: 1px solid var(--line); border-radius: 12px; padding: 16px; min-width: 0; }
+  .card h3 { font: 700 16px Sora, Inter, sans-serif; margin: 0; }
+  .meta { font-size: 12px; color: var(--muted); margin: 2px 0 12px; }
+  .desk { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: grid; grid-template-columns: 132px 1fr; min-height: 300px; }
+  .side { background: var(--fg); color: #d4d4d8; padding: 12px 10px; font-size: 12px; }
+  .side .brand { display: flex; gap: 8px; align-items: center; color: #fff; font: 800 13px Sora, Inter, sans-serif; margin-bottom: 14px; }
+  .side .item { padding: 6px 8px; border-radius: 6px; margin-bottom: 2px; }
+  .side .item.on { background: var(--blue); color: #fff; }
+  .main { padding: 14px; background: var(--ground); min-width: 0; }
+  .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .title { font: 700 15px Sora, Inter, sans-serif; }
+  .btn { display: inline-block; background: var(--blue); color: #fff; border-radius: 8px; padding: 7px 12px; font-size: 12px; font-weight: 600; border: 0; }
+  .btn.ghost { background: var(--ground); color: var(--fg); border: 1px solid var(--fg); }
+  .btn.danger { background: var(--ground); color: var(--fg); border: 1px solid var(--muted); }
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+  .kpi { background: var(--mist); border-radius: 10px; padding: 10px; }
+  .kpi b { display: block; font: 800 20px Sora, Inter, sans-serif; }
+  .kpi span { font-size: 11px; color: var(--muted); }
+  .list { display: grid; gap: 6px; }
+  .row-i { display: flex; justify-content: space-between; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 12px; }
+  .chip { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 6px; background: var(--mist); white-space: nowrap; }
+  .chip.on { background: var(--blue); color: #fff; }
+  .chip.off { background: var(--ground); border: 1px solid var(--muted); color: var(--muted); }
+  .field { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  .input { border: 1px solid var(--muted); border-radius: 8px; padding: 7px 10px; font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+  .check { font-size: 12px; margin: 6px 0; }
+  .logo-row { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+  .center { display: grid; place-items: center; min-height: 300px; background: var(--mist); border-radius: 10px; padding: 16px; }
+  .login { width: 100%; max-width: 280px; background: var(--ground); border-radius: 12px; padding: 18px; }
+  .mob { width: 260px; border: 8px solid var(--fg); border-radius: 28px; padding: 14px 12px; background: var(--ground); margin: 0 auto; font-size: 12px; }
+  .mob-wrap { display: flex; justify-content: center; align-items: center; min-height: 300px; background: var(--mist); border-radius: 10px; padding: 12px; }
+  .table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .table th, .table td { text-align: left; padding: 6px; border-bottom: 1px solid var(--line); }
+  .table th { color: var(--muted); font-weight: 600; }
+  .switch { width: 36px; height: 20px; border-radius: 999px; background: var(--mist); position: relative; display: inline-block; flex: none; }
+  .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--ground); box-shadow: 0 0 0 1px var(--muted); }
+  .switch.on { background: var(--blue); }
+  .switch.on::after { left: 18px; box-shadow: none; }
+  .steps { display: grid; gap: 6px; font-size: 12px; }
+  .step { display: flex; gap: 8px; align-items: center; }
+  .dot { width: 18px; height: 18px; border-radius: 50%; background: var(--mist); display: grid; place-items: center; font-size: 11px; font-weight: 700; }
+  .dot.on { background: var(--blue); color: #fff; }
+  .legal p { font-size: 12px; margin: 4px 0 8px; }
+  .legal h4 { font: 700 13px Sora, Inter, sans-serif; margin: 10px 0 4px; }
+  .skel { background: var(--mist); border-radius: 6px; height: 18px; margin-bottom: 8px; }
+  .skel.w60 { width: 60%; } .skel.w40 { width: 40%; } .skel.h60 { height: 60px; }
+  footer { margin-top: 48px; font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="10" width="9" height="44" rx="3" fill="#0a0a0b"/><path d="M21 10 L44 21 L21 32 Z" fill="#0a0a0b" stroke="#0a0a0b" stroke-width="3" stroke-linejoin="round"/><path d="M21 32 L49 43 L21 54 Z" fill="#2f5bff" stroke="#2f5bff" stroke-width="3" stroke-linejoin="round"/></svg>
+  <div>
+    <h1>Mockups de la plataforma</h1>
+    <div class="tag">BVA Business Solutions · Tu negocio, en autom&aacute;tico. · Versi&oacute;n 1.0 · noviembre 2026</div>
+  </div>
+</header>
+<p class="tag">Equipo: Bryan Andrew Gomez Jimenes, Victor Manuela Gonzalez Trejos y Angel Daniela Salazar Tremi&ntilde;o. Grupo BVA. Profesor: Barry. Mockups de baja fidelidad: muestran la estructura, no el dise&ntilde;o final. Datos de ejemplo.</p>
+
+<div class="section-title">Acceso y cuenta</div>
+<div class="grid">
+
+  <section class="card" id="login">
+    <h3>1. Inicio de sesi&oacute;n</h3>
+    <div class="meta">Todos los roles · RF-01 · escritorio y m&oacute;vil</div>
+    <div class="center">
+      <div class="login">
+        <div class="logo-row"><svg width="28" height="28" viewBox="0 0 64 64"><rect x="12" y="10" width="9" height="44" rx="3" fill="#0a0a0b"/><path d="M21 10 L44 21 L21 32 Z" fill="#0a0a0b"/><path d="M21 32 L49 43 L21 54 Z" fill="#2f5bff"/></svg><b style="font-family:Sora">BVA</b></div>
+        <div class="field">Correo</div><div class="input">tu@empresa.cr</div>
+        <div class="field">Contrase&ntilde;a</div><div class="input">••••••••</div>
+        <span class="btn" style="display:block;text-align:center">Iniciar sesi&oacute;n</span>
+        <div style="font-size:11px;color:var(--muted);margin-top:8px;text-align:center">&iquest;Olvidaste tu contrase&ntilde;a?</div>
+      </div>
+    </div>
+    <div class="mob-wrap" style="margin-top:12px"><div class="mob">
+      <div class="logo-row"><b style="font-family:Sora">BVA</b></div>
+      <div class="field">Correo</div><div class="input">tu@empresa.cr</div>
+      <div class="field">Contrase&ntilde;a</div><div class="input">••••••••</div>
+      <span class="btn" style="display:block;text-align:center">Iniciar sesi&oacute;n</span>
+    </div></div>
+  </section>
+
+  <section class="card" id="registro">
+    <h3>2. Registro p&uacute;blico</h3>
+    <div class="meta">Visitante · RF-02, RF-09 · la casilla obligatoria es requisito</div>
+    <div class="center"><div class="login">
+      <div class="field">Nombre completo</div><div class="input">Nombre y apellidos</div>
+      <div class="field">Correo</div><div class="input">tu@empresa.cr</div>
+      <div class="field">Empresa</div><div class="input">Nombre comercial</div>
+      <div class="check">&#9744; He le&iacute;do y acepto los T&eacute;rminos y la Pol&iacute;tica de privacidad (obligatorio)</div>
+      <div class="check">&#9744; Acepto recibir informaci&oacute;n comercial (opcional)</div>
+      <span class="btn" style="display:block;text-align:center;margin-top:8px">Crear cuenta</span>
+    </div></div>
+  </section>
+
+  <section class="card" id="recuperar">
+    <h3>3. Recuperaci&oacute;n de contrase&ntilde;a</h3>
+    <div class="meta">Todos los roles · RF-04</div>
+    <div class="center"><div class="login">
+      <div class="field">Correo de tu cuenta</div><div class="input">tu@empresa.cr</div>
+      <span class="btn" style="display:block;text-align:center">Enviar enlace</span>
+      <div style="font-size:11px;color:var(--muted);margin-top:8px">El enlace expira en 30 minutos.</div>
+    </div></div>
+  </section>
+
+  <section class="card" id="perfil">
+    <h3>12. Perfil y privacidad</h3>
+    <div class="meta">Todos los roles · RF-08, RF-09</div>
+    <div class="desk">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Perfil</div><div class="item">Agentes</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Mi perfil</span><span class="btn ghost">Editar</span></div>
+        <div class="list">
+          <div class="row-i"><span>Nombre</span><b>Mar&iacute;a Jim&eacute;nez</b></div>
+          <div class="row-i"><span>Correo</span><b>maria@ejemplo.cr</b></div>
+          <div class="row-i"><span>Rol</span><span class="chip">Colaborador</span></div>
+          <div class="row-i"><span>Consentimientos</span><span class="chip on">v1.0 aceptada</span></div>
+        </div>
+        <div style="margin-top:12px"><span class="btn danger">Solicitar eliminaci&oacute;n de mi cuenta</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="eliminar">
+    <h3>13. Flujo de eliminaci&oacute;n de cuenta</h3>
+    <div class="meta">Todos los roles · RF-08 · confirmaci&oacute;n de identidad</div>
+    <div class="center"><div class="login">
+      <div class="steps">
+        <div class="step"><span class="dot on">1</span> Solicitud registrada</div>
+        <div class="step"><span class="dot on">2</span> Confirmaci&oacute;n por correo</div>
+        <div class="step"><span class="dot">3</span> Datos eliminados o anonimizados</div>
+        <div class="step"><span class="dot">4</span> Notificaci&oacute;n final</div>
+      </div>
+      <div class="field" style="margin-top:12px">C&oacute;digo enviado a tu correo</div><div class="input">• • • • • •</div>
+      <span class="btn" style="display:block;text-align:center">Confirmar eliminaci&oacute;n</span>
+    </div></div>
+  </section>
+
+  <section class="card" id="legal">
+    <h3>14. Pol&iacute;tica de privacidad y t&eacute;rminos</h3>
+    <div class="meta">P&uacute;blico · RNF-07 · Ley 8968</div>
+    <div class="center" style="place-items:start"><div class="legal" style="font-size:12px">
+      <h4>1. Responsable</h4><p>BVA Business Solutions, Costa Rica.</p>
+      <h4>2. Datos que recopilamos</h4><p>Nombre, correo, tel&eacute;fono, empresa y datos de uso.</p>
+      <h4>3. Derechos</h4><p>Acceso, rectificaci&oacute;n, cancelaci&oacute;n y oposici&oacute;n desde tu perfil.</p>
+    </div></div>
+  </section>
+
+</div>
+
+<div class="section-title">Panel de administraci&oacute;n y m&oacute;dulos</div>
+<div class="grid">
+
+  <section class="card" id="dash-admin">
+    <h3>4. Dashboard de administrador</h3>
+    <div class="meta">Administrador de empresa · RF-03, RF-06, RF-07</div>
+    <div class="desk">
+      <div class="side"><div class="brand">BVA</div><div class="item on">Inicio</div><div class="item">Usuarios</div><div class="item">Agentes</div><div class="item">Tipo de cambio</div><div class="item">Perfil</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Inicio</span><span class="chip">Distribuidora Ejemplo</span></div>
+        <div class="kpis">
+          <div class="kpi"><b>12</b><span>Usuarios activos</span></div>
+          <div class="kpi"><b>5</b><span>Agentes activos</span></div>
+          <div class="kpi"><b>&#8353;502,40</b><span>Venta del d&oacute;lar (BCCR)</span></div>
+        </div>
+        <div class="list">
+          <div class="row-i"><span>Factura #1832 le&iacute;da por agente</span><span class="chip on">OK</span></div>
+          <div class="row-i"><span>Publicaci&oacute;n pendiente de aprobaci&oacute;n</span><span class="chip">Revisar</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="dash-colab">
+    <h3>5. Dashboard de colaborador</h3>
+    <div class="meta">Colaborador · RF-03, HU-02</div>
+    <div class="desk">
+      <div class="side"><div class="brand">BVA</div><div class="item on">Inicio</div><div class="item">Contabilidad</div><div class="item">Facturas</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Mis tareas</span></div>
+        <div class="list">
+          <div class="row-i"><span>Revisar 4 facturas nuevas</span><span class="chip">Hoy</span></div>
+          <div class="row-i"><span>Conciliar gastos de noviembre</span><span class="chip">Viernes</span></div>
+        </div>
+        <div class="skel w60" style="margin-top:12px"></div><div class="skel w40"></div>
+      </div>
+    </div>
+    <div class="mob-wrap" style="margin-top:12px"><div class="mob">
+      <b style="font-family:Sora">Mis tareas</b>
+      <div class="list" style="margin-top:8px">
+        <div class="row-i"><span>Revisar 4 facturas</span><span class="chip">Hoy</span></div>
+        <div class="row-i"><span>Conciliar gastos</span><span class="chip">Vie</span></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="card" id="superadmin">
+    <h3>6. Panel de superadmin: m&oacute;dulos por empresa</h3>
+    <div class="meta">Superadmin BVA · RF-11, HU-07</div>
+    <div class="desk">
+      <div class="side"><div class="brand">BVA</div><div class="item">Empresas</div><div class="item on">M&oacute;dulos</div><div class="item">Seguimiento</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Distribuidora Ejemplo</span><span class="chip">Plan Profesional</span></div>
+        <div class="list">
+          <div class="row-i"><span>Agentes WhatsApp</span><span class="switch on" role="switch" aria-checked="true"></span></div>
+          <div class="row-i"><span>Log&iacute;stica</span><span class="switch on" role="switch" aria-checked="true"></span></div>
+          <div class="row-i"><span>Pacientes y citas</span><span class="switch" role="switch" aria-checked="false"></span></div>
+          <div class="row-i"><span>Redes sociales</span><span class="switch on" role="switch" aria-checked="true"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="agentes">
+    <h3>7. Agentes de IA</h3>
+    <div class="meta">Seg&uacute;n rol · RF-06 · nueve agentes</div>
+    <div class="desk">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Agentes</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Agentes</span></div>
+        <div class="list">
+          <div class="row-i"><span>Lector de facturas</span><span class="chip on">Activo</span></div>
+          <div class="row-i"><span>Conversacional (RAG)</span><span class="chip on">Activo</span></div>
+          <div class="row-i"><span>Contable</span><span class="chip">Inactivo</span></div>
+          <div class="row-i"><span>Redes sociales</span><span class="chip on">Activo</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="section-title">Redes sociales, log&iacute;stica y servicios</div>
+<div class="grid">
+
+  <section class="card" id="redes">
+    <h3>8. Redes sociales: borradores y aprobaci&oacute;n</h3>
+    <div class="meta">Marketing · RF-14, RF-15, HU-10 · nada se publica sin aprobaci&oacute;n</div>
+    <div class="desk">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Redes sociales</div><div class="item">Bandeja</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Borradores</span><span class="btn">Programar</span></div>
+        <div class="list">
+          <div class="row-i"><span>Instagram · Promo de temporada</span><span><span class="btn ghost" style="padding:4px 8px">Rechazar</span> <span class="btn" style="padding:4px 8px">Aprobar</span></span></div>
+          <div class="row-i"><span>Facebook · Respuesta a comentario</span><span><span class="btn ghost" style="padding:4px 8px">Rechazar</span> <span class="btn" style="padding:4px 8px">Aprobar</span></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="mob-wrap" style="margin-top:12px"><div class="mob">
+      <b style="font-family:Sora">Borradores</b>
+      <div class="list" style="margin-top:8px">
+        <div class="row-i"><span>Promo de temporada</span><span class="chip">Revisar</span></div>
+        <div class="row-i"><span>Respuesta a comentario</span><span class="chip">Revisar</span></div>
+      </div>
+      <span class="btn" style="display:block;text-align:center;margin-top:10px">Aprobar</span>
+    </div></div>
+  </section>
+
+  <section class="card" id="logistica">
+    <h3>9. Log&iacute;stica: tablero de despachos</h3>
+    <div class="meta">Log&iacute;stica · RF-13, HU-09</div>
+    <div class="desk">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Log&iacute;stica</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Despachos de hoy</span></div>
+        <table class="table">
+          <tr><th>Cami&oacute;n</th><th>Conductor</th><th>Ruta</th><th>Estado</th></tr>
+          <tr><td>C-01</td><td>Juan P&eacute;rez</td><td>San Jos&eacute; centro</td><td><span class="chip on">En ruta</span></td></tr>
+          <tr><td>C-02</td><td>Luis Rojas</td><td>Heredia</td><td><span class="chip">Pendiente</span></td></tr>
+          <tr><td>C-03</td><td>Ana Mora</td><td>Cartago</td><td><span class="chip">Entregado</span></td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="mob-wrap" style="margin-top:12px"><div class="mob">
+      <b style="font-family:Sora">Despachos</b>
+      <div class="list" style="margin-top:8px">
+        <div class="row-i"><span>C-01 · San Jos&eacute;</span><span class="chip on">En ruta</span></div>
+        <div class="row-i"><span>C-02 · Heredia</span><span class="chip">Pendiente</span></div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="card" id="pacientes">
+    <h3>10. Pacientes y citas</h3>
+    <div class="meta">Consultorio · RF-12, HU-08</div>
+    <div class="desk">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Citas</div><div class="item">Pacientes</div></div>
+      <div class="main">
+        <div class="top"><span class="title">Citas de la semana</span></div>
+        <div class="list">
+          <div class="row-i"><span>Mar 10:00 · Ana Rojas</span><span class="chip on">Confirmada por WhatsApp</span></div>
+          <div class="row-i"><span>Mar 11:30 · Pedro Solano</span><span class="chip">Por confirmar</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="tipo-cambio">
+    <h3>11. Tipo de cambio BCCR</h3>
+    <div class="meta">Administrador / Colaborador · RF-07, HU-03</div>
+    <div class="desk">
+      <div class="side"><div class="brand">BVA</div><div class="item">Inicio</div><div class="item on">Tipo de cambio</div></div>
+      <div class="main">
+        <div class="top"><span class="title">D&oacute;lar hoy</span><span class="chip">19/11/2026</span></div>
+        <div class="kpis">
+          <div class="kpi"><b>&#8353;498,10</b><span>Compra</span></div>
+          <div class="kpi"><b>&#8353;502,40</b><span>Venta</span></div>
+          <div class="kpi"><b>&#8353;500,25</b><span>Promedio</span></div>
+        </div>
+        <svg viewBox="0 0 300 80" width="100%" height="80" aria-hidden="true"><polyline points="0,60 40,52 80,56 120,40 160,44 200,30 240,34 300,20" fill="none" stroke="#2f5bff" stroke-width="2"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="plantilla">
+    <h3>15. Plantilla base en blanco</h3>
+    <div class="meta">Estructura com&uacute;n que se personaliza por cliente · RF-17</div>
+    <div class="desk">
+      <div class="side"><div class="brand">[Logo]</div><div class="item">[M&oacute;dulo]</div><div class="item">[M&oacute;dulo]</div></div>
+      <div class="main">
+        <div class="top"><span class="title">[T&iacute;tulo del m&oacute;dulo]</span><span class="btn">[Acci&oacute;n]</span></div>
+        <div class="skel w40"></div>
+        <div class="skel h60"></div>
+        <div class="skel w60"></div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--muted);margin-top:8px">Campos entre corchetes se cambian por cliente: logo, colores, m&oacute;dulos y textos.</div>
+  </section>
+
+</div>
+
+<footer>Mockups de baja fidelidad para el anteproyecto. Figma queda para el dise&ntilde;o final. Los datos son ejemplos; no representan a clientes reales.</footer>
+</body>
+</html>

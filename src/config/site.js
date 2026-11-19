@@ -4,6 +4,7 @@ const env = import.meta.env
 
 export const SITE = Object.freeze({
   name: 'BVA Business Solutions',
+  legalName: 'BVA Business Solutions',
   shortName: 'BVA',
   tagline: 'Tu negocio, en automático.',
   country: 'Costa Rica',
