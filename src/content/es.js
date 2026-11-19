@@ -5,7 +5,7 @@
 
 export const hero = {
   title: ['Tu negocio,', 'en', 'automático.'],
-  lead: 'Páginas web, automatización e inteligencia artificial para pymes y empresarios de Costa Rica. Sistemas que siguen trabajando cuando tú no estás.',
+  lead: 'Somos un SaaS modular multiempresa: páginas web, automatización e inteligencia artificial para pymes y empresarios de Costa Rica. Cada negocio activa los módulos que necesita, y sus sistemas siguen trabajando cuando tú no estás.',
   primaryCta: 'Ponlo en marcha',
   secondaryCta: 'Ver qué hacemos',
   sceneLabel: 'Logo de BVA en 3D: una B formada por una base y dos botones de play',
