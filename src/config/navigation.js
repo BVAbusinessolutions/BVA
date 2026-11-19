@@ -15,4 +15,5 @@ export const FOOTER_LINKS = Object.freeze([
   { to: PATHS.platform, label: 'Plataforma' },
   { to: PATHS.contact, label: 'Contacto' },
   { to: PATHS.privacy, label: 'Política de privacidad' },
+  { to: PATHS.terms, label: 'Términos y condiciones' },
 ])

@@ -24,6 +24,7 @@ const CASES = [
   [PATHS.platform, /Tu negocio en una sola pantalla/],
   [PATHS.contact, /Qué tarea quieres dejar de hacer/],
   [PATHS.privacy, /Política de privacidad/],
+  [PATHS.terms, /Términos y condiciones/],
   ['/ruta-que-no-existe', /Esta página no existe/],
 ]
 

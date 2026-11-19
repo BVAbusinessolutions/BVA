@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presentación BVA Business Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #0a0a0b; --blue: #2f5bff; --white: #ffffff; --mist: #f4f4f5; --muted: #52525b; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--ink); color: var(--white); font-family: Inter, system-ui, sans-serif; }
+  .deck { position: relative; width: 100%; height: 100%; overflow: hidden; }
+  .slide { position: absolute; inset: 0; padding: 7vh 8vw; display: none; flex-direction: column; justify-content: center; gap: 18px; }
+  .slide.on { display: flex; }
+  h1 { font: 800 clamp(40px, 6vw, 84px)/0.98 Sora, Inter, sans-serif; margin: 0; }
+  h2 { font: 800 clamp(30px, 4vw, 52px)/1.05 Sora, Inter, sans-serif; margin: 0; }
+  p, li { font-size: clamp(16px, 1.8vw, 22px); line-height: 1.5; color: #e4e4e7; margin: 0; }
+  ul { padding-left: 22px; margin: 0; display: grid; gap: 8px; }
+  .eyebrow { font: 600 14px Inter; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
+  .accent { color: var(--blue); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 8px; }
+  .card { border: 1px solid #27272a; border-radius: 14px; padding: 18px; background: #111113; }
+  .card b { display: block; font: 700 20px Sora, Inter, sans-serif; margin-bottom: 6px; }
+  .card span { font-size: 15px; color: var(--muted); }
+  .team { display: grid; gap: 6px; font-size: clamp(16px, 2vw, 22px); }
+  .flow { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-size: 18px; }
+  .box { background: #18181b; border: 1px solid #3f3f46; border-radius: 10px; padding: 12px 16px; }
+  .box.on { border-color: var(--blue); }
+  .arrow { color: var(--blue); font-size: 22px; }
+  .nav { position: fixed; bottom: 18px; right: 22px; font-size: 14px; color: var(--muted); }
+  .bar { position: fixed; bottom: 0; left: 0; height: 4px; background: var(--blue); transition: width .3s; }
+  table { border-collapse: collapse; width: 100%; font-size: clamp(14px, 1.5vw, 18px); }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #27272a; }
+  th { color: var(--muted); font-weight: 600; }
+  @media (max-width: 720px) { .slide { padding: 9vh 6vw; } }
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+
+  <section class="slide on">
+    <div class="eyebrow">Programa de Desarrollo Web Full Stack · FWD Costa Rica</div>
+    <h1>BVA <span class="accent">Business Solutions</span></h1>
+    <p>Tu negocio, en autom&aacute;tico.</p>
+    <div class="team">
+      <div>Bryan Andrew Gomez Jimenes</div>
+      <div>Victor Manuela Gonzalez Trejos</div>
+      <div>Angel Daniela Salazar Tremi&ntilde;o</div>
+    </div>
+    <p>Grupo BVA · Profesor: Barry · Primer avance: 3 de diciembre de 2026</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">El problema</div>
+    <h2>El due&ntilde;o de la pyme es el cuello de botella</h2>
+    <ul>
+      <li>Atiende clientes, coordina entregas, responde redes y revisa facturas.</li>
+      <li>Cuando no est&aacute; disponible, el negocio se detiene.</li>
+      <li>Las herramientas est&aacute;n separadas: WhatsApp, hojas de c&aacute;lculo y correo.</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">La soluci&oacute;n</div>
+    <h2>Un SaaS modular multiempresa</h2>
+    <p>Cada negocio recibe su panel con los m&oacute;dulos que necesita. BVA los activa desde su panel de superadmin, sin cambiar c&oacute;digo.</p>
+    <div class="cards">
+      <div class="card"><b>Un solo sistema</b><span>Un c&oacute;digo y un despliegue para todas las empresas.</span></div>
+      <div class="card"><b>Datos aislados</b><span>Cada empresa tiene su tenant_id. Nadie ve datos de otra.</span></div>
+      <div class="card"><b>Control por rol</b><span>Administrador, colaborador, cliente y auditor.</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">M&oacute;dulos</div>
+    <h2>Lo que una empresa puede activar</h2>
+    <div class="cards">
+      <div class="card"><b>Agentes de IA</b><span>Nueve agentes: facturas, asistente con fuentes, contable, RR. HH., redes y m&aacute;s.</span></div>
+      <div class="card"><b>Log&iacute;stica</b><span>Camiones, conductores, rutas y mapa de flota.</span></div>
+      <div class="card"><b>Pacientes y citas</b><span>Confirmaci&oacute;n de citas por WhatsApp.</span></div>
+      <div class="card"><b>Redes sociales</b><span>Borradores y publicaciones con aprobaci&oacute;n humana.</span></div>
+      <div class="card"><b>CRM</b><span>Clientes, oportunidades, citas y reportes, si el negocio lo necesita.</span></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Arquitectura</div>
+    <h2>Un proveedor por componente</h2>
+    <div class="flow" style="margin-top:10px">
+      <div class="box on">Cloudflare Pages<br><span style="font-size:14px;color:var(--muted)">sitio y plataforma</span></div>
+      <div class="arrow">&rarr;</div>
+      <div class="box on">Render<br><span style="font-size:14px;color:var(--muted)">API Express y n8n</span></div>
+      <div class="arrow">&rarr;</div>
+      <div class="box on">MongoDB Atlas<br><span style="font-size:14px;color:var(--muted)">base aprobada por el profesor</span></div>
+    </div>
+    <p style="margin-top:14px">Las APIs externas (BCCR, Hacienda, Meta, WhatsApp, clima y mapas) se llaman desde el servidor.</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Estado del proyecto</div>
+    <h2>Lo que ya est&aacute; listo</h2>
+    <table>
+      <tr><th>Parte</th><th>Estado al 19 de noviembre</th></tr>
+      <tr><td>Documentaci&oacute;n: anteproyecto, plan, paquete legal, anexos y libro de marca</td><td>Lista para revisi&oacute;n</td></tr>
+      <tr><td>Mockups de todas las pantallas (sitio y plataforma)</td><td>Baja fidelidad, lista</td></tr>
+      <tr><td>Sitio p&uacute;blico, con portada, servicios, plataforma, contacto, privacidad y t&eacute;rminos</td><td>En marcha</td></tr>
+      <tr><td>Backend: autenticaci&oacute;n, roles y m&oacute;dulos</td><td>En desarrollo</td></tr>
+      <tr><td>Agentes, redes, log&iacute;stica, pacientes y CRM</td><td>Pendiente</td></tr>
+    </table>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Decisiones y riesgos</div>
+    <h2>Lo que cuidamos</h2>
+    <ul>
+      <li><span class="accent">MongoDB</span> como base principal, aprobada por el profesor Barry.</li>
+      <li>Las APIs gratuitas tienen condiciones: Open-Meteo solo es gratuita para uso no comercial.</li>
+      <li>Los agentes no publican ni env&iacute;an nada sin aprobaci&oacute;n humana.</li>
+      <li>Consentimiento, eliminaci&oacute;n de datos y pol&iacute;tica de privacidad seg&uacute;n la Ley 8968.</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Pr&oacute;ximos pasos</div>
+    <h2>Del 3 al 9 de diciembre</h2>
+    <ul>
+      <li>3 de diciembre: primer avance con el profesor Barry.</li>
+      <li>Backend: roles, m&oacute;dulos y los primeros agentes.</li>
+      <li>9 de diciembre: segundo avance y demostraci&oacute;n funcional.</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Gracias</div>
+    <h1>&iquest;Preguntas?</h1>
+    <p>Tu negocio, en autom&aacute;tico.</p>
+  </section>
+
+</main>
+<div class="bar" id="bar"></div>
+<div class="nav" id="nav"></div>
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle('on', k === i));
+    document.getElementById('bar').style.width = ((i + 1) / slides.length * 100) + '%';
+    document.getElementById('nav').textContent = (i + 1) + ' / ' + slides.length + ' · flechas para navegar';
+  }
+  document.addEventListener('keydown', (e) => {
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) show(i + 1);
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) show(i - 1);
+  });
+  document.getElementById('deck').addEventListener('click', (e) => {
+    show(e.clientX > window.innerWidth / 2 ? i + 1 : i - 1);
+  });
+  show(0);
+</script>
+</body>
+</html>

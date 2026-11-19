@@ -5,6 +5,7 @@ export const PATHS = Object.freeze({
   platform: '/plataforma',
   contact: '/contacto',
   privacy: '/privacidad',
+  terms: '/terminos',
 })
 
 /** Anclas de las secciones de la portada (/#proceso, /#negocios…). */

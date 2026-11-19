@@ -217,6 +217,54 @@ export const pages = {
   },
 }
 
+export const terms = {
+  draftNotice:
+    'Borrador para revisión. Este texto debe revisarlo un abogado costarricense antes de publicar el sitio. Reemplaza los datos entre corchetes.',
+  updatedAt: 'Última actualización: [FECHA]',
+  sections: [
+    {
+      title: 'Objeto',
+      text: 'Estos términos regulan el uso de este sitio web y de la plataforma SaaS (software como servicio) de BVA Business Solutions.',
+    },
+    {
+      title: 'Cuenta y acceso',
+      text: 'Debes dar datos verdaderos y cuidar tu contraseña. Eres responsable de la actividad hecha con tu cuenta.',
+    },
+    {
+      title: 'Uso aceptable',
+      text: 'No puedes usar la plataforma para enviar spam, publicar contenido ilegal, intentar ver datos de otras empresas ni vulnerar la seguridad del sistema.',
+    },
+    {
+      title: 'Módulos y planes',
+      text: 'Cada empresa usa los planes y módulos que contrata. Los precios se acuerdan en el contrato de servicio y pueden cambiar con aviso previo de 30 días.',
+    },
+    {
+      title: 'Agentes de inteligencia artificial',
+      text: 'Las respuestas y borradores de los agentes son automatizados y pueden contener errores. No sustituyen asesoría contable, legal, médica ni financiera. Las publicaciones y los mensajes a clientes necesitan aprobación de una persona.',
+    },
+    {
+      title: 'Propiedad intelectual',
+      text: '© 2026 BVA Business Solutions. Todos los derechos reservados. El contenido, el logo y la marca son propiedad de BVA. Está prohibido copiarlos o usarlos sin autorización escrita.',
+    },
+    {
+      title: 'Suspensión',
+      text: 'BVA puede suspender una cuenta que incumpla estos términos, con aviso previo cuando sea posible.',
+    },
+    {
+      title: 'Limitación de responsabilidad',
+      text: 'BVA responde por el funcionamiento de la plataforma, pero no por decisiones tomadas solo con base en respuestas automatizadas, ni por interrupciones de servicios de terceros.',
+    },
+    {
+      title: 'Cambios',
+      text: 'BVA puede actualizar estos términos. Los cambios se publican aquí con su fecha, y se pide aceptación cuando afectan al usuario.',
+    },
+    {
+      title: 'Ley aplicable y contacto',
+      text: 'Estos términos se rigen por las leyes de Costa Rica. Las controversias se resuelven ante los tribunales competentes. Contacto: [CORREO].',
+    },
+  ],
+}
+
 export const privacy = {
   draftNotice:
     'Borrador para revisión. Este texto debe revisarlo un abogado antes de publicar el sitio. Reemplaza todos los datos entre corchetes.',

@@ -9,6 +9,7 @@ const ServicesPage = lazyWithRetry(() => import('../pages/ServicesPage'))
 const PlatformPage = lazyWithRetry(() => import('../pages/PlatformPage'))
 const ContactPage = lazyWithRetry(() => import('../pages/ContactPage'))
 const PrivacyPage = lazyWithRetry(() => import('../pages/PrivacyPage'))
+const TermsPage = lazyWithRetry(() => import('../pages/TermsPage'))
 const NotFoundPage = lazyWithRetry(() => import('../pages/NotFoundPage'))
 
 export default function AppRouter() {
@@ -20,6 +21,7 @@ export default function AppRouter() {
         <Route path={PATHS.platform} element={<PlatformPage />} />
         <Route path={PATHS.contact} element={<ContactPage />} />
         <Route path={PATHS.privacy} element={<PrivacyPage />} />
+        <Route path={PATHS.terms} element={<TermsPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
