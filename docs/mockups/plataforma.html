@@ -646,6 +646,97 @@
 
 </div>
 
+<div class="label">8. Pantalla de cada uno de los nueve agentes</div>
+<div class="grid" id="agent-grid"></div>
+
+<div class="label">9. Versiones m&oacute;viles adicionales</div>
+<div class="grid">
+  <section class="card" id="m-admin">
+    <h3>J1. Inicio del administrador (m&oacute;vil)</h3>
+    <div class="meta">Administrador · RF-03, RF-07</div>
+    <div class="mob-wrap"><div class="mob">
+      <b style="font-family:Sora">Inicio</b>
+      <div class="kpis" style="grid-template-columns:1fr 1fr;margin-top:6px"><div class="kpi"><b>12</b><span>Usuarios</span></div><div class="kpi"><b>5</b><span>Agentes</span></div></div>
+      <div class="list"><div class="row-i"><span>Factura le&iacute;da</span><span class="chip on">OK</span></div><div class="row-i"><span>Publicaci&oacute;n</span><span class="chip warn">Revisar</span></div></div>
+      <div class="note">Men&uacute; inferior: Inicio · Agentes · Citas · Perfil</div>
+    </div></div>
+  </section>
+  <section class="card" id="m-crm">
+    <h3>J2. CRM: clientes (m&oacute;vil)</h3>
+    <div class="meta">Colaborador · RF-20</div>
+    <div class="mob-wrap"><div class="mob">
+      <b style="font-family:Sora">Clientes</b>
+      <div class="input" style="margin-top:6px">Buscar cliente</div>
+      <div class="list"><div class="row-i"><span>Ana Rojas</span><span class="chip on">Cliente</span></div><div class="row-i"><span>Pedro Solano</span><span class="chip">Prospecto</span></div></div>
+    </div></div>
+  </section>
+  <section class="card" id="m-perfil">
+    <h3>J3. Perfil y eliminaci&oacute;n (m&oacute;vil)</h3>
+    <div class="meta">Todos los roles · RF-08, RF-09</div>
+    <div class="mob-wrap"><div class="mob">
+      <b style="font-family:Sora">Mi perfil</b>
+      <div class="list" style="margin-top:6px"><div class="row-i"><span>Correo</span><b>maria@ejemplo.cr</b></div><div class="row-i"><span>Consentimiento</span><span class="chip on">v1.0</span></div></div>
+      <span class="btn danger full" style="margin-top:8px">Solicitar eliminaci&oacute;n</span>
+    </div></div>
+  </section>
+  <section class="card" id="m-superadmin">
+    <h3>J4. M&oacute;dulos por empresa (m&oacute;vil)</h3>
+    <div class="meta">Superadmin BVA · RF-11</div>
+    <div class="mob-wrap"><div class="mob">
+      <b style="font-family:Sora">Distribuidora Ejemplo</b>
+      <div class="list" style="margin-top:6px"><div class="row-i"><span>Log&iacute;stica</span><span class="switch on"></span></div><div class="row-i"><span>Pacientes y citas</span><span class="switch"></span></div></div>
+    </div></div>
+  </section>
+</div>
+
+<div class="label">10. Estados de la aplicaci&oacute;n</div>
+<div class="grid">
+  <section class="card" id="estado-carga">
+    <h3>K1. Carga de tablas y tarjetas</h3>
+    <div class="meta">Cualquier m&oacute;dulo · RNF-05</div>
+    <div class="skel" style="height:34px"></div><div class="skel" style="height:34px"></div><div class="skel w60" style="height:34px"></div>
+  </section>
+  <section class="card" id="estado-sesion">
+    <h3>K2. Sesi&oacute;n expirada</h3>
+    <div class="meta">Todos los roles · RF-04</div>
+    <div class="center"><div class="auth"><div class="logo">&#9654; BVA</div><div class="note" style="color:var(--ink)">Tu sesi&oacute;n venci&oacute; por seguridad. Vuelve a iniciar sesi&oacute;n para continuar.</div><span class="btn full" style="margin-top:8px">Iniciar sesi&oacute;n</span></div></div>
+  </section>
+  <section class="card" id="estado-exito">
+    <h3>K3. Confirmaci&oacute;n de acci&oacute;n</h3>
+    <div class="meta">Cualquier m&oacute;dulo · RNF-05</div>
+    <div class="row-i" style="background:var(--mist)"><span>Cambios guardados. El m&oacute;dulo ya est&aacute; activo para la empresa.</span><span class="chip on">Listo</span></div>
+  </section>
+</div>
+
+<script>
+  const agents = [
+    { n: 'Lector de facturas por correo', i: 'Correos con PDF, XML o imagen', o: 'Emisor, fecha, montos e impuestos' },
+    { n: 'Conversacional con RAG', i: 'Pregunta y documentos del negocio', o: 'Respuesta que cita su fuente' },
+    { n: 'Generador de contenido multimedia', i: 'Indicación del usuario', o: 'Textos e imágenes para campañas' },
+    { n: 'Contable', i: 'Gastos e ingresos', o: 'Clasificación, resumen y apoyo a conciliaciones' },
+    { n: 'Recursos humanos', i: 'Currículos o consulta de políticas', o: 'Análisis frente al puesto o respuesta' },
+    { n: 'Atención al cliente', i: 'Tickets o consultas', o: 'Prioridad y respuesta propuesta' },
+    { n: 'Analista de datos', i: 'Información del sistema', o: 'Reporte en lenguaje natural' },
+    { n: 'Asistente de cumplimiento', i: 'Documentos o procesos', o: 'Revisión frente a políticas de privacidad' },
+    { n: 'Redes sociales', i: 'Temas, marca y publicaciones', o: 'Borradores y respuestas con aprobación humana' }
+  ];
+  const grid = document.getElementById('agent-grid');
+  agents.forEach((a, k) => {
+    const s = document.createElement('section');
+    s.className = 'card';
+    s.id = 'agente-' + (k + 1);
+    s.innerHTML = '<h3>I' + (k + 1) + '. ' + a.n + '</h3>' +
+      '<div class="meta">Rol: colaborador o administrador · RF-06, RF-10</div>' +
+      '<div class="app"><div class="side"><div class="brand">BVA</div><div class="item">Agentes</div><div class="item on">' + a.n + '</div></div>' +
+      '<div class="main"><div class="top"><span class="title">' + a.n + '</span><span class="chip on">Activo</span></div>' +
+      '<div class="field">Entrada</div><div class="input">' + a.i + '</div>' +
+      '<div class="field">Salida</div><div class="input">' + a.o + '</div>' +
+      '<div class="list"><div class="row-i"><span>Última ejecución</span><span class="chip on">OK</span></div><div class="row-i"><span>Bitácora</span><span class="chip">agent_runs</span></div></div>' +
+      '</div></div>';
+    grid.appendChild(s);
+  });
+</script>
+
 <footer>Mockups de baja fidelidad de la plataforma BVA · datos de ejemplo · fase 1 (acceso, superadmin, administrador, m&oacute;dulos) y fase 2 (verificaci&oacute;n en dos pasos, asistente y calendario).</footer>
 </body>
 </html>
