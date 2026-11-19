@@ -6,3 +6,6 @@ coverage
 .env.*.local
 .DS_Store
 *.log
+
+# Documentos internos de la empresa (no se suben al repo)
+src/docs/
