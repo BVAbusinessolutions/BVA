@@ -70,6 +70,11 @@
     <li><a href="#eliminacion">Eliminaci&oacute;n de cuenta y datos</a></li>
     <li><a href="#personalizacion">Personalizaci&oacute;n de una empresa</a></li>
     <li><a href="#cobro">Ciclo de cobro del servicio</a></li>
+    <li><a href="#sitio">Mapa del sitio p&uacute;blico</a></li>
+    <li><a href="#formulario">Solicitud desde el formulario de contacto</a></li>
+    <li><a href="#login-secuencia">Secuencia del inicio de sesi&oacute;n</a></li>
+    <li><a href="#arquitectura">Arquitectura de despliegue</a></li>
+    <li><a href="#modelo">Modelo de datos (relaciones)</a></li>
     <li><a href="#matriz">Anexo: matriz de requerimientos</a></li>
   </ol>
 </nav>
@@ -325,8 +330,111 @@ flowchart LR
   </pre></div>
 </section>
 
+<section id="sitio">
+  <h2>16. Mapa del sitio p&uacute;blico</h2>
+  <span class="req">RF-02</span><span class="req">RF-09</span><span class="req">RNF-05</span>
+  <div class="rule">Regla de negocio: todo visitante llega a la portada y puede pasar a contacto en un clic. La pol&iacute;tica de privacidad se enlaza desde el formulario y desde el pie.</div>
+  <div class="diagram"><pre class="mermaid">
+flowchart TD
+  H["Inicio"] --> S["Qu&eacute; hacemos"]
+  H --> P["Plataforma"]
+  H --> PA["Para qui&eacute;n"]
+  H --> C["Contacto"]
+  S --> C
+  P --> C
+  PA --> C
+  C --> PR["Pol&iacute;tica de privacidad"]
+  H --> PR
+  </pre></div>
+</section>
+
+<section id="formulario">
+  <h2>17. Solicitud desde el formulario de contacto</h2>
+  <span class="req">HU-05</span><span class="req">RF-09</span><span class="req">RNF-07</span>
+  <div class="rule">Regla de negocio: el formulario no se env&iacute;a sin el consentimiento. La solicitud llega al equipo BVA por el workflow de n8n, y la respuesta siempre sale de una persona.</div>
+  <div class="diagram"><pre class="mermaid">
+sequenceDiagram
+  actor V as Visitante
+  participant W as Sitio en Cloudflare
+  participant N as Workflow n8n en Render
+  participant E as Equipo BVA
+  V->>W: llena el formulario y acepta el consentimiento
+  W->>W: valida campos obligatorios
+  W->>N: env&iacute;a la solicitud al webhook
+  N->>E: aviso con los datos de contacto
+  N-->>W: confirmaci&oacute;n
+  W-->>V: "Recibimos tu solicitud"
+  </pre></div>
+</section>
+
+<section id="login-secuencia">
+  <h2>18. Secuencia del inicio de sesi&oacute;n</h2>
+  <span class="req">RF-01</span><span class="req">RNF-01</span><span class="req">RNF-04</span>
+  <div class="rule">Regla de negocio: el servidor compara la contrase&ntilde;a con bcrypt siempre, exista o no el correo. As&iacute; la respuesta y el tiempo son iguales en los dos casos.</div>
+  <div class="diagram"><pre class="mermaid">
+sequenceDiagram
+  actor U as Usuario
+  participant F as Frontend en Cloudflare
+  participant A as API en Render
+  participant D as MongoDB Atlas
+  U->>F: correo y contrase&ntilde;a
+  F->>A: POST al login
+  A->>D: buscar usuario por correo
+  D-->>A: usuario o nada
+  A->>A: comparar con bcrypt
+  alt Credenciales v&aacute;lidas
+    A-->>F: JWT con expiraci&oacute;n
+    F-->>U: sesi&oacute;n iniciada
+  else Inv&aacute;lidas
+    A-->>F: 401 mensaje gen&eacute;rico
+    F-->>U: "Correo o contrase&ntilde;a incorrectos"
+  end
+  </pre></div>
+</section>
+
+<section id="arquitectura">
+  <h2>19. Arquitectura de despliegue</h2>
+  <span class="req">RNF-04</span><span class="req">RNF-08</span><span class="req">Plan de producci&oacute;n</span>
+  <div class="rule">Regla de negocio: la base de datos solo acepta conexiones de la API. Las credenciales viven en cada proveedor, nunca en el c&oacute;digo. Cada integraci&oacute;n externa se llama desde el servidor.</div>
+  <div class="diagram"><pre class="mermaid">
+flowchart LR
+  U["Persona"] --> CF["Cloudflare Pages: sitio y plataforma"]
+  CF --> API["API Express en Render"]
+  API --> DB[("MongoDB Atlas")]
+  API --> N8N["n8n en Render"]
+  N8N --> API
+  API --> BCCR["BCCR: tipo de cambio"]
+  API --> HAC["Hacienda: contribuyentes"]
+  API --> META["Meta y WhatsApp Business"]
+  API --> GM["Google Maps Platform"]
+  API --> CLI["Open-Meteo u OpenWeather"]
+  </pre></div>
+</section>
+
+<section id="modelo">
+  <h2>20. Modelo de datos (relaciones)</h2>
+  <span class="req">RNF-08</span><span class="req">RF-10</span><span class="req">RF-11</span>
+  <div class="rule">Regla de negocio: casi todo cuelga de la empresa (tenant_id). Los usuarios y las bit&aacute;coras nunca se leen fuera de su empresa.</div>
+  <div class="diagram"><pre class="mermaid">
+erDiagram
+  COMPANIES ||--o{ USERS : tiene
+  ROLES ||--o{ USERS : asigna
+  COMPANIES ||--o{ COMPANY_MODULES : activa
+  MODULES ||--o{ COMPANY_MODULES : se_activa_en
+  COMPANIES ||--o{ AGENT_RUNS : registra
+  COMPANIES ||--o{ SOCIAL_POSTS : publica
+  COMPANIES ||--o{ SHIPMENTS : despacha
+  COMPANIES ||--o{ APPOINTMENTS : agenda
+  COMPANIES ||--o{ FILES : guarda
+  COMPANIES ||--o{ SUBSCRIPTIONS : contrata
+  USERS ||--o{ CONSENTS : acepta
+  USERS ||--o{ DELETION_REQUESTS : pide
+  USERS ||--o{ SOCIAL_POSTS : aprueba
+  </pre></div>
+</section>
+
 <section id="matriz">
-  <h2>16. Anexo: matriz de requerimientos</h2>
+  <h2>21. Anexo: matriz de requerimientos</h2>
   <p>Relaci&oacute;n entre cada requerimiento y el cap&iacute;tulo que lo dibuja.</p>
   <table>
     <thead><tr><th>Requerimiento</th><th>Descripci&oacute;n</th><th>Cap&iacute;tulo</th></tr></thead>

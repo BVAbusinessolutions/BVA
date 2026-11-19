@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockups del sitio BVA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --ground: #ffffff; --ink: #0a0a0b; --blue: #2f5bff; --blue-soft: #7a95ff; --mist: #f4f4f5; --muted: #52525b; --line: #e4e4e7; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #e4e4e7; color: var(--ink); font: 14px/1.5 Inter, system-ui, sans-serif; padding: 32px 16px; }
+  h1 { font: 800 30px/1.1 Sora, Inter, sans-serif; margin: 0 0 6px; }
+  .lead { color: var(--muted); margin: 0 0 24px; }
+  .label { font: 600 12px Inter; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 28px 0 10px; }
+  .frame { background: var(--ground); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.08); margin-bottom: 24px; }
+  .web { width: 100%; max-width: 980px; margin: 0 auto; }
+  .mobile { width: 360px; margin: 0 auto; }
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; background: var(--ink); color: #d4d4d8; font-size: 12px; }
+  .nav .links { display: flex; gap: 18px; }
+  .brand { display: flex; align-items: center; gap: 8px; color: #fff; font: 800 15px Sora, Inter, sans-serif; }
+  .btn { display: inline-block; background: var(--blue); color: #fff; border-radius: 10px; padding: 10px 16px; font-weight: 600; font-size: 13px; }
+  .btn.line { background: transparent; border: 1px solid #fff; color: #fff; }
+  .btn.dark { background: var(--ink); }
+  .hero { background: var(--ink); color: #fff; padding: 64px 40px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items: center; min-height: 360px; }
+  .hero h2 { font: 800 56px/0.98 Sora, Inter, sans-serif; margin: 0; letter-spacing: -0.01em; }
+  .hero h2 span { color: var(--blue); }
+  .hero p { color: #d4d4d8; max-width: 440px; font-size: 16px; }
+  .scene { height: 240px; border-radius: 12px; background: radial-gradient(circle at 70% 40%, rgba(47,91,255,.35), transparent 60%), #111113; display: grid; place-items: center; color: #a1a1aa; font-size: 12px; text-align: center; padding: 12px; }
+  .sec { padding: 56px 40px; }
+  .sec.alt { background: var(--mist); }
+  .eyebrow { font: 600 12px Inter; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); }
+  .sec h3 { font: 800 32px/1.1 Sora, Inter, sans-serif; margin: 6px 0 8px; }
+  .sec .sub { color: var(--muted); max-width: 560px; margin: 0 0 24px; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .card { background: var(--ground); border: 1px solid var(--line); border-radius: 12px; padding: 16px; font-size: 13px; }
+  .card b { display: block; font: 700 16px Sora, Inter, sans-serif; margin-bottom: 6px; }
+  .card ul { margin: 8px 0 0; padding-left: 16px; color: var(--muted); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; counter-reset: s; }
+  .step { border-top: 3px solid var(--ink); padding-top: 10px; font-size: 13px; }
+  .step b { font: 700 15px Sora, Inter, sans-serif; display: block; margin-bottom: 4px; }
+  .plat { display: grid; grid-template-columns: 1fr 1.3fr; gap: 24px; align-items: center; }
+  .screen { background: var(--ink); border-radius: 12px; padding: 14px; color: #d4d4d8; font-size: 11px; }
+  .screen .row { display: flex; gap: 8px; }
+  .screen .col { flex: 1; background: #18181b; border-radius: 8px; padding: 8px; min-height: 120px; }
+  .screen .card-m { background: #27272a; border-radius: 6px; padding: 6px; margin-bottom: 6px; }
+  .ind { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .ind div { border: 1px solid var(--line); border-radius: 12px; padding: 14px; font-size: 13px; background: var(--ground); }
+  .ind b { font: 700 15px Sora, Inter, sans-serif; display: block; margin-bottom: 4px; }
+  .cta { background: var(--blue); color: #fff; padding: 48px 40px; text-align: center; }
+  .cta h4 { font: 800 30px Sora, Inter, sans-serif; margin: 0 0 8px; }
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .form { background: var(--ground); border: 1px solid var(--line); border-radius: 12px; padding: 18px; font-size: 13px; }
+  .field { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+  .input { border: 1px solid var(--muted); border-radius: 8px; padding: 8px 10px; color: var(--muted); margin-bottom: 10px; font-size: 13px; }
+  .check { font-size: 12px; color: var(--muted); margin: 8px 0; }
+  footer { background: var(--ink); color: #a1a1aa; padding: 28px 40px; font-size: 12px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .m-hero { background: var(--ink); color: #fff; padding: 36px 20px; }
+  .m-hero h2 { font: 800 36px/1 Sora, Inter, sans-serif; margin: 0 0 10px; }
+  .m-hero h2 span { color: var(--blue); }
+  .m-sec { padding: 28px 20px; border-top: 1px solid var(--line); }
+  .m-sec h3 { font: 800 22px/1.1 Sora, Inter, sans-serif; margin: 4px 0 8px; }
+  .m-card { border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin-bottom: 10px; font-size: 13px; }
+  .m-card b { font: 700 15px Sora, Inter, sans-serif; display: block; }
+  .m-nav { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; background: var(--ink); color: #fff; font: 800 15px Sora, Inter, sans-serif; }
+  @media (max-width: 760px) {
+    .hero, .plat, .contact { grid-template-columns: 1fr; }
+    .cards, .steps, .ind { grid-template-columns: 1fr 1fr; }
+    .hero h2 { font-size: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Mockups del sitio p&uacute;blico</h1>
+<p class="lead">Basados en la p&aacute;gina de inicio actual (portada oscura con logo 3D, secciones en blanco y gris, CTA azul). Textos tomados de <code>src/content/es.js</code>. Baja fidelidad.</p>
+
+<div class="label">Escritorio: portada completa</div>
+<div class="frame web">
+  <div class="nav">
+    <div class="brand">BVA</div>
+    <div class="links"><span>Qu&eacute; hacemos</span><span>C&oacute;mo trabajamos</span><span>Plataforma</span><span>Para qui&eacute;n</span></div>
+    <span class="btn">Ponlo en marcha</span>
+  </div>
+  <div class="hero">
+    <div>
+      <h2>Tu negocio,<br>en <span>autom&aacute;tico.</span></h2>
+      <p style="margin-top:20px">P&aacute;ginas web, automatizaci&oacute;n e inteligencia artificial para pymes y empresarios de Costa Rica. Sistemas que siguen trabajando cuando t&uacute; no est&aacute;s.</p>
+      <div style="display:flex;gap:10px;margin-top:20px"><span class="btn">Ponlo en marcha</span><span class="btn line">Ver qu&eacute; hacemos</span></div>
+    </div>
+    <div class="scene">Logo de BVA en 3D: una B formada por una base y dos botones de play</div>
+  </div>
+  <div class="sec">
+    <div class="eyebrow">Servicios</div>
+    <h3>Qu&eacute; hacemos</h3>
+    <p class="sub">Empezamos por la tarea que m&aacute;s tiempo te quita. Despu&eacute;s, todo lo dem&aacute;s.</p>
+    <div class="cards">
+      <div class="card"><b>P&aacute;ginas web</b>Tu negocio abierto las 24 horas.<ul><li>Dise&ntilde;o a la medida</li><li>Formularios a tu WhatsApp</li></ul></div>
+      <div class="card"><b>Automatizaci&oacute;n</b>Las tareas repetidas, hechas solas.<ul><li>Recordatorios de citas</li><li>Cotizaciones autom&aacute;ticas</li></ul></div>
+      <div class="card"><b>Inteligencia artificial</b>Asistentes que responden a tus clientes.<ul><li>Responde preguntas frecuentes</li><li>Pasa a una persona si hace falta</li></ul></div>
+      <div class="card"><b>SaaS y CRM</b>Un sistema propio para clientes, ventas y tareas.<ul><li>Historial por cliente</li><li>Reportes semanales</li></ul></div>
+    </div>
+  </div>
+  <div class="sec alt">
+    <div class="eyebrow">Proceso</div>
+    <h3>As&iacute; lo ponemos en marcha</h3>
+    <p class="sub">Cuatro pasos, sin tecnicismos y con el costo claro desde el inicio.</p>
+    <div class="steps">
+      <div class="step"><b>Conversamos</b>Nos cuentas c&oacute;mo funciona tu negocio.</div>
+      <div class="step"><b>Dise&ntilde;amos la soluci&oacute;n</b>Propuesta, dise&ntilde;o y costo antes de empezar.</div>
+      <div class="step"><b>Lo construimos</b>Lo probamos contigo.</div>
+      <div class="step"><b>Lo ponemos en marcha</b>Te ense&ntilde;amos a usarlo y seguimos cerca.</div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="plat">
+      <div>
+        <div class="eyebrow">Plataforma</div>
+        <h3>Tu negocio en una sola pantalla</h3>
+        <p class="sub">Clientes, ventas, citas y reportes en un mismo lugar.</p>
+        <span class="btn">Quiero conocerla</span>
+      </div>
+      <div class="screen">
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px"><b style="color:#fff">Plataforma BVA</b><span>+ Nuevo</span></div>
+        <div class="row">
+          <div class="col"><div class="card-m">Consulta por WhatsApp</div><div class="card-m">Formulario de la web</div></div>
+          <div class="col"><div class="card-m">Cotizaci&oacute;n enviada</div></div>
+          <div class="col"><div class="card-m">Servicio completado</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sec alt">
+    <div class="eyebrow">Para qui&eacute;n</div>
+    <h3>Para negocios de todo tipo</h3>
+    <div class="ind" style="margin-top:20px">
+      <div><b>Restaurantes y sodas</b>Reservas y pedidos por WhatsApp.</div>
+      <div><b>Salud y bienestar</b>Citas y confirmaciones para cl&iacute;nicas y spas.</div>
+      <div><b>Tiendas y comercio</b>Cat&aacute;logo, inventario y avisos de pago.</div>
+      <div><b>Servicios profesionales</b>Cotizaciones, contratos y seguimiento.</div>
+      <div><b>Turismo y hospedaje</b>Disponibilidad y mensajes a hu&eacute;spedes.</div>
+      <div><b>Talleres y t&eacute;cnicos</b>&Oacute;rdenes de trabajo y avisos.</div>
+    </div>
+  </div>
+  <div class="cta">
+    <h4>&iquest;Listo para dejar de hacerlo a mano?</h4>
+    <p>Cu&eacute;ntanos qu&eacute; tarea te quita m&aacute;s tiempo y te decimos c&oacute;mo automatizarla.</p>
+    <span class="btn dark">Hablemos</span>
+  </div>
+  <div class="sec">
+    <div class="contact">
+      <div>
+        <div class="eyebrow">Contacto</div>
+        <h3>&iquest;Qu&eacute; tarea quieres dejar de hacer a mano?</h3>
+        <p class="sub">Cu&eacute;ntanos en dos minutos. Te respondemos con una propuesta clara.</p>
+      </div>
+      <div class="form">
+        <div class="field">Nombre</div><div class="input">Nombre</div>
+        <div class="field">Correo</div><div class="input">correo@ejemplo.cr</div>
+        <div class="field">&iquest;Qu&eacute; te gustar&iacute;a automatizar?</div><div class="input" style="min-height:48px">Mensaje</div>
+        <div class="check">&#9744; Acepto que BVA use estos datos solo para responder mi solicitud, seg&uacute;n la pol&iacute;tica de privacidad.</div>
+        <span class="btn">Enviar solicitud</span>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <span>BVA Business Solutions · Costa Rica</span>
+    <span>Pol&iacute;tica de privacidad</span>
+    <span>Este sitio no usa cookies de anal&iacute;tica ni de publicidad.</span>
+    <span>&copy; 2026 BVA Business Solutions. Todos los derechos reservados.</span>
+  </footer>
+</div>
+
+<div class="label">M&oacute;vil: portada</div>
+<div class="frame mobile">
+  <div class="m-nav"><span>BVA</span><span class="btn" style="font-size:12px;padding:6px 10px">Ponlo en marcha</span></div>
+  <div class="m-hero">
+    <h2>Tu negocio, en <span>autom&aacute;tico.</span></h2>
+    <p style="color:#d4d4d8;font-size:14px">P&aacute;ginas web, automatizaci&oacute;n e IA para pymes de Costa Rica.</p>
+    <div class="scene" style="height:150px;margin-top:12px">Logo 3D (versi&oacute;n liviana)</div>
+    <div style="display:flex;gap:8px;margin-top:14px"><span class="btn">Ponlo en marcha</span><span class="btn line">Qu&eacute; hacemos</span></div>
+  </div>
+  <div class="m-sec">
+    <div class="eyebrow">Servicios</div>
+    <h3>Qu&eacute; hacemos</h3>
+    <div class="m-card"><b>P&aacute;ginas web</b>Tu negocio abierto las 24 horas.</div>
+    <div class="m-card"><b>Automatizaci&oacute;n</b>Las tareas repetidas, hechas solas.</div>
+    <div class="m-card"><b>Inteligencia artificial</b>Asistentes que responden a tus clientes.</div>
+    <div class="m-card"><b>SaaS y CRM</b>Un sistema propio para clientes y ventas.</div>
+  </div>
+  <div class="m-sec">
+    <div class="eyebrow">Proceso</div>
+    <h3>As&iacute; lo ponemos en marcha</h3>
+    <div class="m-card"><b>1. Conversamos</b></div>
+    <div class="m-card"><b>2. Dise&ntilde;amos la soluci&oacute;n</b></div>
+    <div class="m-card"><b>3. Lo construimos</b></div>
+    <div class="m-card"><b>4. Lo ponemos en marcha</b></div>
+  </div>
+  <div class="cta" style="padding:28px 20px"><h4 style="font-size:24px">&iquest;Listo para dejar de hacerlo a mano?</h4><span class="btn dark">Hablemos</span></div>
+</div>
+
+<div class="label">Escritorio: p&aacute;gina de servicios</div>
+<div class="frame web">
+  <div class="nav"><div class="brand">BVA</div><div class="links"><span>Qu&eacute; hacemos</span><span>Plataforma</span><span>Contacto</span></div><span class="btn">Ponlo en marcha</span></div>
+  <div class="hero" style="min-height:220px;grid-template-columns:1fr">
+    <div>
+      <div class="eyebrow" style="color:#7a95ff">Servicios</div>
+      <h2 style="font-size:44px">Servicios que trabajan por ti</h2>
+      <p>Elige por d&oacute;nde empezar. Cada servicio se dise&ntilde;a a la medida de tu negocio y se entrega funcionando.</p>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="cards">
+      <div class="card"><b>P&aacute;ginas web</b>Ejemplos: sitios de presentaci&oacute;n, cat&aacute;logos, reservas en l&iacute;nea.<ul><li>Dise&ntilde;o a la medida</li><li>Primero para celular</li><li>Optimizado para Google en Costa Rica</li></ul></div>
+      <div class="card"><b>Automatizaci&oacute;n</b>Ejemplos: flujos con WhatsApp, correo y hojas de c&aacute;lculo.<ul><li>Recordatorios de citas</li><li>Cotizaciones en segundos</li><li>Conexi&oacute;n con tus herramientas</li></ul></div>
+      <div class="card"><b>Inteligencia artificial</b>Ejemplos: chat en tu web y WhatsApp.<ul><li>Precios y horarios reales</li><li>Agenda desde la conversaci&oacute;n</li><li>Pasa a una persona si hace falta</li></ul></div>
+      <div class="card"><b>SaaS y CRM</b>Ejemplos: paneles de clientes, inventario, reportes.<ul><li>Historial de clientes</li><li>Inventario con avisos</li><li>Reportes semanales</li></ul></div>
+    </div>
+  </div>
+</div>
+
+<div class="label">Escritorio: p&aacute;gina de contacto</div>
+<div class="frame web">
+  <div class="nav"><div class="brand">BVA</div><div class="links"><span>Qu&eacute; hacemos</span><span>Plataforma</span><span>Contacto</span></div><span class="btn">Ponlo en marcha</span></div>
+  <div class="sec">
+    <div class="contact">
+      <div>
+        <div class="eyebrow">Contacto</div>
+        <h3>&iquest;Qu&eacute; tarea quieres dejar de hacer a mano?</h3>
+        <p class="sub">Cu&eacute;ntanos en dos minutos. Te respondemos con una propuesta: qu&eacute; har&iacute;amos, en cu&aacute;nto tiempo y cu&aacute;nto cuesta.</p>
+        <div class="card" style="margin-top:12px"><b>O escr&iacute;benos directo</b>Correo y WhatsApp, con enlace directo.</div>
+      </div>
+      <div class="form">
+        <div class="field">Nombre</div><div class="input">Nombre</div>
+        <div class="field">Correo</div><div class="input">correo@ejemplo.cr</div>
+        <div class="field">WhatsApp (opcional)</div><div class="input">+506</div>
+        <div class="field">Tipo de negocio (opcional)</div><div class="input">Selecciona</div>
+        <div class="field">&iquest;Qu&eacute; te gustar&iacute;a automatizar?</div><div class="input" style="min-height:48px">Mensaje</div>
+        <div class="check">&#9744; Acepto que BVA use estos datos solo para responder mi solicitud, seg&uacute;n la pol&iacute;tica de privacidad.</div>
+        <span class="btn">Enviar solicitud</span>
+        <div class="check">Usamos tu nombre y correo para responderte. No los compartimos ni enviamos publicidad.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer style="border-radius:0 0 0 0;margin-top:-24px;max-width:980px;margin-left:auto;margin-right:auto"><span>Mockups del sitio p&uacute;blico BVA · baja fidelidad</span></footer>
+</body>
+</html>
