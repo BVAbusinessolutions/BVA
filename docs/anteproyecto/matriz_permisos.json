@@ -1,0 +1,614 @@
+{
+  "version": "1.0",
+  "fecha": "2026-11-23",
+  "responsable": "Grupo BVA",
+  "descripcion": "Matriz de permisos de BVA Business Solutions. Fuente única: el anteproyecto (Word) y el Excel se generan desde este archivo.",
+  "roles": [
+    {
+      "codigo": "SA",
+      "nombre": "Superadmin BVA",
+      "alcance": "Plataforma",
+      "titulo": "Alcance: plataforma. No paga: administra empresas, módulos y cobros, y no opera los datos de los clientes."
+    },
+    {
+      "codigo": "AD",
+      "nombre": "Administrador",
+      "alcance": "Su empresa",
+      "titulo": "Alcance: su empresa. Solicita módulos y gestiona a sus usuarios; el acceso lo paga la empresa."
+    },
+    {
+      "codigo": "CO",
+      "nombre": "Colaborador",
+      "alcance": "Su empresa y su área",
+      "titulo": "Alcance: su empresa y su área. Usa los módulos y agentes que la empresa tiene pagados para su área."
+    },
+    {
+      "codigo": "CL",
+      "nombre": "Cliente (usuario final)",
+      "alcance": "Propio",
+      "titulo": "Alcance: propio. Ve sus datos y usa los módulos de la empresa que tiene pagados. El rol todavía no existe en la base de datos."
+    },
+    {
+      "codigo": "AU",
+      "nombre": "Auditor",
+      "alcance": "Lectura de gobernanza",
+      "titulo": "Alcance: solo lectura de bitácoras, consentimientos, solicitudes de eliminación y reportes de gobernanza."
+    }
+  ],
+  "rows": [
+    {
+      "grupo": "Acceso y cuenta",
+      "recurso": "Iniciar sesión",
+      "pantalla": "A1",
+      "endpoint": "POST /auth/login (existe)",
+      "pago": "Ninguno",
+      "acciones": {
+        "SA": "Iniciar sesión",
+        "AD": "Iniciar sesión",
+        "CO": "Iniciar sesión",
+        "CL": "Iniciar sesión",
+        "AU": "Iniciar sesión"
+      }
+    },
+    {
+      "grupo": "Acceso y cuenta",
+      "recurso": "Recuperar contraseña",
+      "pantalla": "A4",
+      "endpoint": "POST /auth/forgot · POST /auth/reset",
+      "pago": "Ninguno",
+      "acciones": {
+        "SA": "Solicitar",
+        "AD": "Solicitar",
+        "CO": "Solicitar",
+        "CL": "Solicitar",
+        "AU": "Solicitar"
+      }
+    },
+    {
+      "grupo": "Acceso y cuenta",
+      "recurso": "Registro de empresa",
+      "pantalla": "A3",
+      "endpoint": "POST /tenants",
+      "pago": "Ninguno; la empresa inicia en prueba",
+      "acciones": {
+        "SA": "—",
+        "AD": "—",
+        "CO": "—",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Acceso y cuenta",
+      "recurso": "Mi perfil",
+      "pantalla": "12",
+      "endpoint": "GET /auth/me (existe) · PATCH /auth/me",
+      "pago": "Ninguno",
+      "acciones": {
+        "SA": "Ver, editar (propio)",
+        "AD": "Ver, editar (propio)",
+        "CO": "Ver, editar (propio)",
+        "CL": "Ver, editar (propio)",
+        "AU": "Ver, editar (propio)"
+      }
+    },
+    {
+      "grupo": "Acceso y cuenta",
+      "recurso": "Mis consentimientos",
+      "pantalla": "12",
+      "endpoint": "GET /account/consents",
+      "pago": "Ninguno",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver (propio)",
+        "CO": "Ver (propio)",
+        "CL": "Ver (propio)",
+        "AU": "Ver (propio)"
+      }
+    },
+    {
+      "grupo": "Acceso y cuenta",
+      "recurso": "Solicitar eliminación de mi cuenta",
+      "pantalla": "13",
+      "endpoint": "POST /account/deletion-requests",
+      "pago": "Ninguno",
+      "acciones": {
+        "SA": "—",
+        "AD": "Crear (propia)",
+        "CO": "Crear (propia)",
+        "CL": "Crear (propia)",
+        "AU": "Crear (propia)"
+      }
+    },
+    {
+      "grupo": "Plataforma BVA",
+      "recurso": "Empresas de la plataforma",
+      "pantalla": "2",
+      "endpoint": "GET, POST, PATCH /platform/tenants",
+      "pago": "BVA (no paga)",
+      "acciones": {
+        "SA": "Ver, crear, editar, suspender",
+        "AD": "—",
+        "CO": "—",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Plataforma BVA",
+      "recurso": "Activación de módulos",
+      "pantalla": "6",
+      "endpoint": "GET, PATCH /tenants/:id/modules",
+      "pago": "BVA (no paga)",
+      "acciones": {
+        "SA": "Ver, activar, desactivar",
+        "AD": "Ver",
+        "CO": "—",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Plataforma BVA",
+      "recurso": "Suscripción y cobros",
+      "pantalla": "Pendiente",
+      "endpoint": "GET, PATCH /subscriptions",
+      "pago": "BVA (no paga)",
+      "acciones": {
+        "SA": "Ver, crear, editar",
+        "AD": "Ver (su plan y pagos)",
+        "CO": "—",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Plataforma BVA",
+      "recurso": "Seguimiento de clientes BVA",
+      "pantalla": "2",
+      "endpoint": "GET, POST /platform/notes",
+      "pago": "BVA (no paga)",
+      "acciones": {
+        "SA": "Ver, crear, editar",
+        "AD": "—",
+        "CO": "—",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Gestión de la empresa",
+      "recurso": "Usuarios de la empresa",
+      "pantalla": "4",
+      "endpoint": "GET, POST, PATCH /users (POST existe)",
+      "pago": "Suscripción vigente",
+      "acciones": {
+        "SA": "Ver (soporte, sin contraseñas)",
+        "AD": "Ver, crear, editar, desactivar",
+        "CO": "—",
+        "CL": "—",
+        "AU": "Ver"
+      }
+    },
+    {
+      "grupo": "Gestión de la empresa",
+      "recurso": "Roles y permisos",
+      "pantalla": "4",
+      "endpoint": "GET /roles · PATCH /users/:id/role",
+      "pago": "Suscripción vigente",
+      "acciones": {
+        "SA": "Ver",
+        "AD": "Ver, asignar rol",
+        "CO": "—",
+        "CL": "—",
+        "AU": "Ver"
+      }
+    },
+    {
+      "grupo": "Gestión de la empresa",
+      "recurso": "Marca de la empresa",
+      "pantalla": "15",
+      "endpoint": "PATCH /tenants/:id/branding",
+      "pago": "Suscripción vigente",
+      "acciones": {
+        "SA": "Ver",
+        "AD": "Ver, editar",
+        "CO": "—",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Gestión de la empresa",
+      "recurso": "Páginas en blanco de módulo",
+      "pantalla": "15 (plantilla)",
+      "endpoint": "POST /pages · PATCH /pages/:id",
+      "pago": "Módulo activo y pagado (por página)",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver, crear, editar, publicar",
+        "CO": "Ver (las que le asignan)",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Gestión de la empresa",
+      "recurso": "Solicitudes de eliminación (gestión)",
+      "pantalla": "Pendiente",
+      "endpoint": "GET /deletion-requests",
+      "pago": "Suscripción vigente",
+      "acciones": {
+        "SA": "Ver (estado)",
+        "AD": "Ver (su empresa)",
+        "CO": "—",
+        "CL": "—",
+        "AU": "Ver"
+      }
+    },
+    {
+      "grupo": "Gestión de la empresa",
+      "recurso": "Consentimientos de la empresa",
+      "pantalla": "Pendiente",
+      "endpoint": "GET /consents",
+      "pago": "Suscripción vigente",
+      "acciones": {
+        "SA": "Ver (agregado)",
+        "AD": "Ver",
+        "CO": "—",
+        "CL": "—",
+        "AU": "Ver"
+      }
+    },
+    {
+      "grupo": "Agentes de IA",
+      "recurso": "Catálogo de agentes",
+      "pantalla": "7",
+      "endpoint": "GET /agents",
+      "pago": "Módulo Agentes pagado",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver todos",
+        "CO": "Ver (su área)",
+        "CL": "Ver (asistente)",
+        "AU": "Ver"
+      }
+    },
+    {
+      "grupo": "Agentes de IA",
+      "recurso": "Bitácora de agentes",
+      "pantalla": "C6",
+      "endpoint": "GET /agent-runs",
+      "pago": "Módulo Agentes pagado",
+      "acciones": {
+        "SA": "Ver (agregado)",
+        "AD": "Ver (empresa)",
+        "CO": "Ver (propias)",
+        "CL": "—",
+        "AU": "Ver (solo lectura)"
+      }
+    },
+    {
+      "grupo": "Agentes de IA",
+      "recurso": "Agente 1: lector de facturas por correo",
+      "pantalla": "7b",
+      "endpoint": "POST /agents/invoices/run",
+      "pago": "Módulo Agentes + licencia del agente",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ejecutar",
+        "CO": "Ejecutar (contabilidad)",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Agentes de IA",
+      "recurso": "Agente 2: conversacional con RAG",
+      "pantalla": "Agente 2",
+      "endpoint": "POST /agents/rag/ask",
+      "pago": "Módulo Agentes + licencia del agente",
+      "acciones": {
+        "SA": "—",
+        "AD": "Usar",
+        "CO": "Usar",
+        "CL": "Usar",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Agentes de IA",
+      "recurso": "Agente 3: generador de contenido multimedia",
+      "pantalla": "Agente 3",
+      "endpoint": "POST /agents/media/run",
+      "pago": "Módulo Agentes + licencia del agente",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ejecutar",
+        "CO": "Ejecutar (marketing)",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Agentes de IA",
+      "recurso": "Agente 4: contable",
+      "pantalla": "Agente 4",
+      "endpoint": "POST /agents/accounting/run",
+      "pago": "Módulo Agentes + licencia del agente",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ejecutar",
+        "CO": "Ejecutar (contabilidad)",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Agentes de IA",
+      "recurso": "Agente 5: recursos humanos",
+      "pantalla": "Agente 5",
+      "endpoint": "POST /agents/hr/run",
+      "pago": "Módulo Agentes + licencia del agente",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ejecutar",
+        "CO": "Ejecutar (RR. HH.)",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Agentes de IA",
+      "recurso": "Agente 6: atención al cliente",
+      "pantalla": "Agente 6",
+      "endpoint": "POST /agents/support/run",
+      "pago": "Módulo Agentes + licencia del agente",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ejecutar",
+        "CO": "Ejecutar",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Agentes de IA",
+      "recurso": "Agente 7: analista de datos",
+      "pantalla": "Agente 7",
+      "endpoint": "POST /agents/analytics/run",
+      "pago": "Módulo Agentes + licencia del agente",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ejecutar",
+        "CO": "Ver resultados (su área)",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Agentes de IA",
+      "recurso": "Agente 8: asistente de cumplimiento",
+      "pantalla": "Agente 8",
+      "endpoint": "POST /agents/compliance/run",
+      "pago": "Módulo Agentes + licencia del agente",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ejecutar",
+        "CO": "—",
+        "CL": "—",
+        "AU": "Ver (consulta)"
+      }
+    },
+    {
+      "grupo": "Agentes de IA",
+      "recurso": "Agente 9: redes sociales",
+      "pantalla": "Agente 9",
+      "endpoint": "POST /agents/social/run",
+      "pago": "Módulo Agentes + licencia del agente",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ejecutar",
+        "CO": "Ejecutar (marketing)",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Agentes de IA",
+      "recurso": "Archivos y facturas",
+      "pantalla": "7b",
+      "endpoint": "POST, GET /files",
+      "pago": "Módulo Agentes pagado",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver, subir, eliminar",
+        "CO": "Ver, subir",
+        "CL": "Ver (propios)",
+        "AU": "Ver"
+      }
+    },
+    {
+      "grupo": "Logística",
+      "recurso": "Despachos",
+      "pantalla": "9",
+      "endpoint": "GET, POST, PATCH /shipments",
+      "pago": "Módulo Logística pagado",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver, crear, editar, eliminar",
+        "CO": "Ver, crear, cambiar estado",
+        "CL": "Ver (su entrega)",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Logística",
+      "recurso": "Camiones, conductores y rutas",
+      "pantalla": "9",
+      "endpoint": "CRUD /trucks · /drivers · /routes",
+      "pago": "Módulo Logística pagado",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver, crear, editar, eliminar",
+        "CO": "Ver, editar estado",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Logística",
+      "recurso": "Mapa de flota",
+      "pantalla": "17",
+      "endpoint": "GET /fleet/positions",
+      "pago": "Módulo Logística pagado",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver",
+        "CO": "Ver",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Pacientes y citas",
+      "recurso": "Pacientes",
+      "pantalla": "10",
+      "endpoint": "CRUD /patients",
+      "pago": "Módulo Pacientes y citas pagado",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver, crear, editar, eliminar",
+        "CO": "Ver, crear, editar",
+        "CL": "Ver (propio)",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Pacientes y citas",
+      "recurso": "Citas",
+      "pantalla": "10",
+      "endpoint": "CRUD /appointments",
+      "pago": "Módulo Pacientes y citas pagado",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver, crear, editar, cancelar",
+        "CO": "Ver, crear, editar",
+        "CL": "Ver, confirmar (propia)",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Redes sociales",
+      "recurso": "Borradores de redes sociales",
+      "pantalla": "8",
+      "endpoint": "GET, POST, PATCH /social-posts",
+      "pago": "Módulo Redes sociales pagado",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver, crear, editar, eliminar",
+        "CO": "Crear, editar (propios)",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Redes sociales",
+      "recurso": "Aprobación y programación",
+      "pantalla": "8",
+      "endpoint": "POST /social-posts/:id/approve",
+      "pago": "Módulo Redes sociales pagado",
+      "acciones": {
+        "SA": "—",
+        "AD": "Aprobar, rechazar, programar",
+        "CO": "Enviar a aprobación",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "CRM",
+      "recurso": "Clientes (CRM)",
+      "pantalla": "CRM",
+      "endpoint": "CRUD /crm/customers",
+      "pago": "Módulo CRM pagado",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver, crear, editar, eliminar",
+        "CO": "Ver, crear, editar (propios)",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "CRM",
+      "recurso": "Oportunidades (CRM)",
+      "pantalla": "CRM",
+      "endpoint": "CRUD /crm/leads",
+      "pago": "Módulo CRM pagado",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver, crear, editar, eliminar, cambiar estado",
+        "CO": "Ver, crear, editar (propias)",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Información externa",
+      "recurso": "Tipo de cambio BCCR",
+      "pantalla": "11",
+      "endpoint": "GET /fx/bccr",
+      "pago": "Suscripción vigente",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver",
+        "CO": "Ver",
+        "CL": "—",
+        "AU": "Ver"
+      }
+    },
+    {
+      "grupo": "Información externa",
+      "recurso": "Clima del día",
+      "pantalla": "16",
+      "endpoint": "GET /weather",
+      "pago": "Suscripción vigente",
+      "acciones": {
+        "SA": "—",
+        "AD": "Ver",
+        "CO": "Ver",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Integraciones",
+      "recurso": "Webhooks de n8n",
+      "pantalla": "Sin pantalla",
+      "endpoint": "POST /webhooks/n8n/:flujo",
+      "pago": "Suscripción vigente y módulo de automatización",
+      "acciones": {
+        "SA": "Ver (configuración)",
+        "AD": "Ver ejecuciones",
+        "CO": "—",
+        "CL": "—",
+        "AU": "—"
+      }
+    },
+    {
+      "grupo": "Sitio público",
+      "recurso": "Páginas legales públicas",
+      "pantalla": "14, 14b",
+      "endpoint": "GET /public/legal/:documento",
+      "pago": "Ninguno (público)",
+      "acciones": {
+        "SA": "Editar",
+        "AD": "Ver",
+        "CO": "Ver",
+        "CL": "Ver",
+        "AU": "Ver"
+      }
+    }
+  ]
+}
